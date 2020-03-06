@@ -1,0 +1,8 @@
+
+#AMI password logging issue for windows
+
+From the temporary instance, modify the configuration file on the secondary volume as follows:
+Launch and connect to the temporary instance.
+Open the Disk Management utility, and bring the drive online using these instructions: Making an Amazon EBS Volume Available for Use.
+Navigate to the secondary volume, and open \Program Files\Amazon\Ec2ConfigService\Settings\config.xml using a text editor, such as Notepad.
+At the top of the file, find the plugin with the name Ec2SetPassword, as shown in the screenshot. Change the state from Disabled to Enabled and save the file.
