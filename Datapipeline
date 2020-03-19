@@ -1,0 +1,29 @@
+Job for moving dynamo db data to s3
+
+DP(data pipeline) will use the defaultV subnet if its having
+But in the case we have different subnet we need mentioned ths subnet
+
+
+Notes of In the Edit activity dataPipeline
+-----------------------
+Datapipelines
+- Backend its EMR activity which in turns run map reduce job.
+- By default it will pick
+
+
+Resouces
+- subnet-id
+		mentioned the private subnet
+- core-instance-type
+		m4.xlarge same as master instnace same for data node.
+
+
+Table BackupActivity
+- before running:- false it will compute with with minimal instnaces as like 1 Master node 1 Data node
+- before running :- true- it will will compute the jobs and necessary resources ec2 instance will be created based.
+
+
+Note
+Data pipeline needs subnet with NAT with 0.0.0.0 in the Route Table.
+EMR will donwoad necessary plugins  
+
