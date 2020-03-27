@@ -1,0 +1,41 @@
+#procedure_to restore on-prim MSSQL database to RDSMSSQL
+
+
+Step1 :
+Take the backup of the Onprim database which will be bak extention
+
+Step2:
+Create a s3 bucket and upload  all the .bak file to bucket.
+
+Step3:
+Create a "option group" in RDS which will left navigation pane
+- mention the name for option group
+- mention the SQL version and major version
+
+step4:
+Select the "option group" created in step3 ,click "add option" 
+select "Option name"  SQLSERVER_BACKUP_RESTORE
+- Use IAM role 
+		select "create new role" underneth mention the s3 bucket-name
+
+step4:
+select "Apply immediately" to apply the changes.
+
+step5:
+select the RDS instance,select the modify option on top and modify the "option group" created on step3
+select "Apply changes immediately" to apply the chnages.
+
+step6:
+Login to MSSQL using DB paramters
+Execute the below query
+
+
+DB operations:
+--------------
+step1:
+exec msdb.dbo.rds_restore_database
+@restore_db_name='<database_name>',
+@s3_arn_to_restore_from='arn:aws:s3:::<S3 bucket_name>/<bakup_file.bak>
+
+Step2:
+exec msdb.dbo.rds_task_status
