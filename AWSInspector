@@ -1,0 +1,16 @@
+AWS Inspector
+-----------------
+
+Amazon Inspector is an AWS managed service that enables you to run vulnerability assessments on your instances with little to no configuration.
+suported OS: Linux and windows server is based around rules packages which define types of vulnerabilities to check for.
+
+step1:
+Need to define an assessment which is a set of tags that will determine which resources include in the assessment.
+
+step2:
+simply need to have resoures with apt tag running and start the assessment run. This will trigger the agent running on those instances to send telmentry back to onspector based on the rules packages 
+defined in the template.
+
+inspectr will analyze the elementry and generate finding
+Thse finding can be reviewed and or downloaded as part of an assessment report.
+
