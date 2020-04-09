@@ -1,0 +1,5 @@
+Assinging Tag policies
+--------------------------------
+
+We can assign tag policies in AWS master account to enforce them in the child accounts.
+AWS org is component where we write tag policies to underlying child accounts.
