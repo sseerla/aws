@@ -1,5 +1,9 @@
 
 
+Reservation:
+
+
+
 Leverage the Spot market
 
 
@@ -21,88 +25,22 @@ It needs to be monitored at all times to identify when assets are being under-ut
 Resources standardization  and Cost saving for AWS:
 
 #Migrate the application only if it is needed
-
+We really have to take decision if cloud migration is well required for application.
+if we have under utilized resouces and Licences on-prim and which suits the requirement we should make of them first instead of 
+going to cloud.
 
 
 #Need to set up Budget levels for each account and threshold Alarms for each account.
+Management have to provide Finicial figures to all the Account owners.
+Note:
+Each account will differ in budgets based on the projects and business.
+
+#Requisition approval for expensive resource.
+Approval is required  either from Account owner or from managment for spinning for resouces crossing the budget.
+
 
 #Reserved Instances.
 Reserved Instance(RI) can save up to 75% compared to on-demand pricing
-
-Few Benefits of RIs:
-Once purchased, RIs can be modified in several ways at no additional cost:
-• Switching Availability Zones within the same region
-• Switching between EC2 classic and Virtual Private Cloud
-• Altering the instance type within the same family (this includes both
-splitting & merging instance types)
-• Changing the account that benefits from the RI purchase 
-#Leverage the Spot market::Spot Instances
-
-Tip:
-A 1-year term reservation will almost always break-even after six months. This is when you can shut down an instance and still benefit from the reservation’s pricing discount. For a 3-year reservation, the break-even point usually occurs around nine months. 
-
-RI resources: RDS,EC2,Elastic Cache,RedShift.
-
-
-#Right size your resources EC2 and EBS volumes
--I would prefer go with least option first, and eventually scale it based on the requirement.
-Over-provisioning an EC2 instance can lead to exponentially higher costs.
-Without performance monitoring or cloud management tools, it’s hard to tell when assets are over- or under-provisioned. 
--AWS compute optimize
-       - AWS compute optimize is free of cost uses ML to analyze  2weeks of data (CPU,N/W), if cloudwatch is setup in the instance
-       it will analyze memory too.
-       - Reviewing these trended metrics over time, you can make decisions around reducing the size of the instance without hurting the performance of the applications on the instance
-- Tip:
-A good starting place for rightsizing is to look for instances that have an Avg CPU < 5% and Max CPU < 20% for 30 days.
-Instances that fit this criteria are viable candidates for rightsizing or termination.
-
-#Scheduling On/Off Times
-- Typical use case:
-Intances that are running 24/7,Amazon will bill for 672 to 744 hours per instance, depending
-on the month. If an instance is turned off between 5pm and 9am on weekdays and stopped weekends and holidays, then total billable hours per month would range from 152 to 184 hours per instance, saving you 488 to 592 instance hours per month
-
-
-#Automate the resource lifecycle create and terminate
-- Ideal candidates:: S3, EBS volumnes
-- S3::Move Infrequently-Accessed Data to Lower Cost Tiers
-
-
-
-#Terminate Zombie Assets::Delete the unused/orphan volumes ,EIPs.
--  Release Unattached Elastic IP Addresses
--  Delete the unused EBS volumes 
-		- option1: we can get data from cloud custodian across the organization 
--  Load Balancer with no traffic
--  Delete the aged snapshots
-     - A compounding factor on this issue is that users can configure settings to automatically create subsequent snapshots on a daily basis we have control on  creating/deleting snapshots
-     - Delete snapshots based on thresold periods.
--  Delete the unsed RDS instances.
-
-EBS Volume tips::
-If a volume is attached to an instance and barely has any
-read/writes on that volume, the instance is either inactive or the volume is unnecessary. These re good candidates to flag for
-rightsizing evaluation.
-
-It’s typical to see General Purpose SSD or Provisioned IOPS SSD volumes that barely have any read/writes for a long period of time. They can be downgraded to Throughput Optimized HDD or even Cold HDD volumes in
-order to reduce cost
-
-#Upgrade Instances to the Latest Generation
-- With AWS announcements on latest products,release of new generation instance that have improved performance.
-- Either it can upgrade instance for superior performace for low cost or change the instance types 
-UseCase:
-upgrading a c1.xlarge to a c3.xlarge will cut costs by up to 60% while offering significantly faster processing. 
-
-
-#Long Term goal:: making use of ECS and serverless Computing.
-
-
-
-
---Reservation notes
-
-
-Reservation:
-
 Reservation is mostly a financial tool, you commit to pay for resources during 1 or 3 years and get a discount over the on-demand price
 
 Reservation comes with 3 different payment option
@@ -110,7 +48,7 @@ Reservation comes with 3 different payment option
 - Partial Upfront
 - No Upfront.
 
-With partial and no upfront, you pay the remaining balance monthly over the ter
+With partial and no upfront, you pay the remaining balance monthly over the term
 
 Two types of reservations:
 - Standard
@@ -121,50 +59,35 @@ we  can reserve a lot of things and not only Amazon EC2 instances: Amazon RDS, A
 
 Reservation Inspection has to done at least 2 times in a year understand the resources that need to reserved for next year and vice versa by understanding the growth of the project/application.
 
-
-
-Leverage the Spot market
-
-
-
-
-
-
-
-
-
-
-
-
---------------------
-AWS Cost Optimization
-AWS cost optimization best practices is an one stop process its a an ongoing process.
-It needs to be monitored at all times to identify when assets are being under-utilized  and when opportunities exist to reduce costs by deleting/terminating/releasing zombie assets.
-
-Resources standardization  and Cost saving for AWS:
-
-#Migrate the application only if it is needed
-
-
-
-#Need to set up Budget levels for each account and threshold Alarms for each account.
-
-#Reserved Instances.
-Reserved Instance(RI) can save up to 75% compared to on-demand pricing
-
 Few Benefits of RIs:
 Once purchased, RIs can be modified in several ways at no additional cost:
 • Switching Availability Zones within the same region
 • Switching between EC2 classic and Virtual Private Cloud
 • Altering the instance type within the same family (this includes both
 splitting & merging instance types)
-• Changing the account that benefits from the RI purchase 
-#Leverage the Spot market::Spot Instances
+• Changing the account that benefits from the RI purchase.
 
 Tip:
 A 1-year term reservation will almost always break-even after six months. This is when you can shut down an instance and still benefit from the reservation’s pricing discount. For a 3-year reservation, the break-even point usually occurs around nine months. 
 
-RI resources: RDS,EC2,Elastic Cache,RedShift.
+RI resources: RDS,EC2,Elastic Cache,RedShift
+
+
+#Leverage the Spot market::Spot Instances
+Can get 90% compared to Ondemand.
+Define a max spot price and get a instance while current max price < max spot price.
+If spot price is greater than max spot price then AWS will reclaim the instance.
+Hourly spot price varies based on offer and capacity
+If the current spot price > you max price you can choose or terminate your instance with a 2 minutes grace period 
+Intruption behivaior will be wither shutdown/terminate
+use case::
+Users with urgent computing needs for large amounts of additional capacity
+
+
+SPOTBLOCK
+Block the spot instance during specified time frame(1-6 hours) without any interuptions.
+In rare situations, the instance may be reclaimed.
+
 
 
 #Right size your resources EC2 and EBS volumes
@@ -184,11 +107,14 @@ Instances that fit this criteria are viable candidates for rightsizing or termin
 Intances that are running 24/7,Amazon will bill for 672 to 744 hours per instance, depending
 on the month. If an instance is turned off between 5pm and 9am on weekdays and stopped weekends and holidays, then total billable hours per month would range from 152 to 184 hours per instance, saving you 488 to 592 instance hours per month
 
-
 #Automate the resource lifecycle create and terminate
 - Ideal candidates:: S3, EBS volumnes
 - S3::Move Infrequently-Accessed Data to Lower Cost Tiers
+- EFS:
+	standard for frequently access files
+	Infrequently acces(EFS-IA) corst 
 
+AWS backup:: setup the Life cycle policy
 
 
 #Terminate Zombie Assets::Delete the unused/orphan volumes ,EIPs.
@@ -209,6 +135,16 @@ rightsizing evaluation.
 It’s typical to see General Purpose SSD or Provisioned IOPS SSD volumes that barely have any read/writes for a long period of time. They can be downgraded to Throughput Optimized HDD or even Cold HDD volumes in
 order to reduce cost
 
+EBS volumes that have very low activity (less than 1 IOPS per day) over a period of 7 days indicate that they are probably not in use
+
+Orphan EBS volumnes: where state of the EBS volumen is in "Available state" those can be deleted
+Options:
+	- if the ppl are require EBS volume which are in available state, they should have tag with DND(Do not delete) or some other 
+	name , where deletion script analyses and wont mark for deltion .
+	- if we really want retain the data in EBS volumne in the "Available state",Its better to copy the data to s3 bucket
+	to save the cost.	
+
+
 #Upgrade Instances to the Latest Generation
 - With AWS announcements on latest products,release of new generation instance that have improved performance.
 - Either it can upgrade instance for superior performace for low cost or change the instance types 
@@ -216,4 +152,10 @@ UseCase:
 upgrading a c1.xlarge to a c3.xlarge will cut costs by up to 60% while offering significantly faster processing. 
 
 
-#Long Term goal:: making use of ECS and serverless Computing.
+
+Reference::
+
+Trusted Advisors
+https://aws.amazon.com/premiumsupport/technology/trusted-advisor/best-practice-checklist/
+
+
