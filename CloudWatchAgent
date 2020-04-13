@@ -1,0 +1,35 @@
+CloudWatchAgent
+---------------
+
+First of all create required IAM roles for the EC2 instances to be able to send metrics to cloudwatch
+In the list of policies while creating IAM Role for EC2 Instance, select the check box next to "CloudWatchAgentServerPolicy". Use the search box to find the policy, if necessary.
+
+Launch an EC2 instance with port 80 and 22 open in the security group.
+SSH into the instance
+
+Find the cloudwatch agent download link here: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-first-instance.html
+
+Download the Cloudwatch Unified Agent. Find the right agent link for your OS by visiiting the above link
+
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
+Install the Cloudwatch Agent
+sudo rpm -U ./amazon-cloudwatch-agent.rpm
+
+
+Configure the Cloudwatch agent with the help of a setup wizard:
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+Choose all the default option except don't install statd and collectd. Selecy YES when asked to collect Memory Utilization metric. Select NO when asked if you want to monitor log files.
+
+Start the agent
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
+
+You should be set! We'll explore the collected metrics now.
+Part 2 : View the collected cloudwatch custom metrics
+In the first part of this lab we configured the cloudwatch Unified agent. Now let's look at the metrics collected by the agent.
+
+Remember: RAM/Memory metrics are not collected by Cloudwatch by default. Cloudwatch agent enables us to collect those metrics not collected by default.
+
+In the config wizard we selected to collect Metrics like Ram etc
+
+Reference::
+https://github.com/Cloud-Yeti/aws-ec2-course/blob/master/labs/lab09-instance-logs-using-cloudwatch.MD
