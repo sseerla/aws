@@ -31,5 +31,17 @@ Remember: RAM/Memory metrics are not collected by Cloudwatch by default. Cloudwa
 
 In the config wizard we selected to collect Metrics like Ram etc
 
+
+we can monitor other than infra specs like log,process,best practice is to segreagate into different files
+like infra.json and process.json
+
+Please use below commands
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/tmp/infrastructure.json -s
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a append-config -m ec2 -c file:/tmp/app.json -s
+Note: first one should fetch_config and secon_cpne should be append_config
+
+
+
+
 Reference::
 https://github.com/Cloud-Yeti/aws-ec2-course/blob/master/labs/lab09-instance-logs-using-cloudwatch.MD
