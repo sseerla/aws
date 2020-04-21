@@ -1,0 +1,10 @@
+Enabling the Build triggers(meaning building the repo in scheduled way).
+-----------------------------------------------------------------------
+
+step1: Navigate to code build
+step2: select the code build name from code build
+step3: under the build trigger 
+            create a buider
+            freqecy :custom -----if i want build in frequent days
+            rate :- rate(2 days)-----------means every 2 days
+            
