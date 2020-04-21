@@ -1,0 +1,58 @@
+
+Setting up Alerts with Cloudwatch
+
+##cloudWatch Events
+By defautl message will be difficult to understand Alert message(since the mail body is json message)
+To make it meaningful we should make use of Input Tranformer where we can pick the right variables like time,regions,account,instance-id
+time etc
+
+Below are the paramters::
+
+{
+"version": "0",
+"id": "c9ee0b68-dde9-b1f8-d3d1-993291a95c64a",
+"detail-type": "Config Rules Compliance Change",
+"source": "aws.config",
+"account": "XXXXXXXXX",
+"time": "2018-09-25T17:33:22Z",
+"region": "us-east-1",
+"resources": [],
+"detail": {
+"resourceId": "i-1234567890",
+"awsRegion": "us-east-1",
+"awsAccountId": "XXXXXXXXX",
+"configRuleName": "required-tags",
+"recordVersion": "1.0",
+"configRuleARN": "arn:aws:config:us-east-1:XXXXXXXXX:config-rule/config-rule-wufeqb",
+"messageType": "ComplianceChangeNotification",
+"newEvaluationResult": {
+"evaluationResultIdentifier": {
+"evaluationResultQualifier": {
+"configRuleName": "required-tags",
+"resourceType": "AWS::EC2::Instance",
+"resourceId": "i-1234567890"
+},
+"orderingTimestamp": "2018-09-25T17:33:17.063Z"
+},
+"complianceType": "NON_COMPLIANT",
+"resultRecordedTime": "2018-09-25T17:33:21.831Z",
+"configRuleInvokedTime": "2018-09-25T17:33:21.641Z"
+},
+"notificationCreationTime": "2018-09-25T17:33:22.051Z",
+"resourceType": "AWS::EC2::Instance"
+}
+}
+
+
+
+
+
+Choose Add target.
+For Targets, choose SNS topic.
+For Topic, choose the topic name that you created earlier.
+For Configure input, choose Input Transformer.
+For Input Path, enter the following:
+{"instance-id":"$.detail.instance-id", "state":"$.detail.state", "time":"$.time", "region":"$.region", "account":"$.account"}
+For Input Template, enter the following:
+"At <time>, the status of your EC2 instance <instance-id> on account <account> in the AWS Region <region> has changed to <state>."
+Note: You can also enter custom input.
