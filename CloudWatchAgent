@@ -1,5 +1,11 @@
 CloudWatchAgent
 ---------------
+Topics:
+1. Installing cloudwatch Agent
+2. Configuring using wizard
+3. Process monitoring
+
+
 
 First of all create required IAM roles for the EC2 instances to be able to send metrics to cloudwatch
 In the list of policies while creating IAM Role for EC2 Instance, select the check box next to "CloudWatchAgentServerPolicy". Use the search box to find the policy, if necessary.
@@ -39,6 +45,70 @@ Please use below commands
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/tmp/infrastructure.json -s
 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a append-config -m ec2 -c file:/tmp/app.json -s
 Note: first one should fetch_config and secon_cpne should be append_config
+
+
+##Process Monitoring in Cloudwatch
+
+Step1:
+create a process.json file in the path
+/opt/aws/amazon-cloudwatch-agent/bin
+
+step2:
+In this case im monitoring on single process
+{
+        "metrics": {
+                "metrics_collected": {
+                        "procstat": [{
+                                "pid_file": "/opt/aws/amazon-cloudwatch-agent/var/amazon-cloudwatch-agent.pid",
+                                "measurement": [
+                                        "cpu_usage",
+                                        "memory_rss"
+                                ]
+                        }]
+                }
+        }
+}
+
+Note: if you have multiple process 
+
+---->
+{
+    "metrics": {
+        "metrics_collected": {
+            "procstat": [
+                {
+                    "pid_file": "/var/run/example1.pid",
+                    "measurement": [
+                        "cpu_usage",
+                        "memory_rss"
+                    ]
+                },
+                {
+                    "pid_file": "/var/run/example2.pid",
+                    "measurement": [
+                        "read_bytes",
+                        "read_count",
+                        "write_bytes"
+                    ],
+                    "metrics_collection_interval": 10
+                }
+            ]
+        }
+    }
+}
+----->
+
+Step3
+Append the configration,since cloudwatch already started basic infra 
+/opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a append-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/process.json -s^
+
+
+
+
+
+
+
+
 
 
 
