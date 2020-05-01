@@ -1,0 +1,25 @@
+
+#Creating a Route53 record,-attching to ELB and underlying instance.
+
+
+
+Assuming a instance running port 80, In this case i was running a powerBI server
+i was able to access using IP address or hostname
+
+Requirement was enable ssl fo power BI server
+I did try to add SSL cert in powere BI server but nothing worked and hooked ELB and ALB its working but not perfect 
+issue with fonts,issue with image
+
+Finally i hooked to NLB , which worked seemsly
+and Created Route53 record(Private) and with CNAME i attached a NLB.
+
+
+Adding SSL to Website.
+i create a private certificate with CNAME i created with ROute53 
+and uploaded the certificate files in NLB
+There are 3 files which are required.
+Private key--decrypeted format
+certificate
+Certificate chain
+
+i was able to access Power BI using SSL
