@@ -1,6 +1,8 @@
 #procedure_to restore on-prim MSSQL database to RDSMSSQL
+#RDS Best practices
 
 
+-----------------------------------------------------------------------------------------------------------------------------
 Step1 :
 Take the backup of the Onprim database which will be ".bak" extention
 
@@ -39,3 +41,38 @@ exec msdb.dbo.rds_restore_database
 
 Step2:
 exec msdb.dbo.rds_task_status
+
+
+#########################################################################################################################3####
+
+#RDS Best Practices
+
+Share RDS instances across multiple applications and preferably host these in a shared VPC.
+The application VPCs can then use a Peering Connection to talk to the database.
+
+Prefer using non-public RDS instances.
+
+Be conservative when choosing the DB Instance Class. You can also change it later (up/down). 
+However, starting conservatively will minimize cost and will save unnecessary hassles if you decided to go from a higher class to a lower
+class.
+
+Prefer using the GP2 storage type over IO1 whenever possible to keep the costs low.
+
+When using IO1 storage, choose the minimum number of IOPS that meet the application needs.
+
+In general, you may require a round of tests to identify the most appropriate configuration and then periodically evaluate if any further optimization is needed.
+
+Prefer using a more generic name for the DB instance identifier instead of an app specific one. The rationale being a given RDS instance can be used by multiple applications.
+
+Avoid sharing the RDS master/admin user with any application team. Instead, create additional users for them with appropriate privileges.
+
+Although RDS makes database management quite simple and often does not require a DBA on the team,
+follow the database best practices.
+
+Prefer creating security groups in advance and associating these with the RDS instances instead of creating on the fly.
+
+Use security groups to restrict access to RDS instance to the required components only. 
+
+For example, in a multi-tier stack, if the application tier only talks to the database, 
+
+configure the security group rules to only permit access from the app tier.
