@@ -1,0 +1,17 @@
+How to create a private hosted zone in Route53
+
+
+----------------------------------------------------
+Step1:(example.com)
+    Go to Route53,click new hosted zone
+    Type the domain name and type private
+    select the VPC to which you want host to 
+    Hit create.
+Step2:
+    Create a CNAME record for the same hosted zone
+    demo.example.com
+    with CNAME to www.google.com
+    
+Step3:
+     Login to instnace in PVT VPC
+     dig demo.exmaple.com
