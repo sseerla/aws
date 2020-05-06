@@ -14,3 +14,18 @@ defined in the template.
 inspectr will analyze the elementry and generate finding
 Thse finding can be reviewed and or downloaded as part of an assessment report.
 
+
+
+Procedure to Assess a image
+Step1:
+Install the AWS inspector agent
+curl -O https://inspector-agent.amazonaws.com/linux/latest/install
+
+Step2
+Execute the shell script
+sudo bash install -u false
+
+Goto AWSInspector
+Provide the tag to identify instances with AWS inspector image.
+Since the agent is already installed,you can uncheck the Agent install.
+You are set to scan now
