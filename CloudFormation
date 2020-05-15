@@ -1,0 +1,38 @@
+Best pratices of cloudformaton
+
+Yesterday I got a chance to attend AWS session Deep-dive on IaaC(Cloud formation) webinar
+Here are some notes which I captured during the session some useful plugins and Best practices.
+Speaker:: darrko-mesaros
+
+Below few listed plugin helpful during coding CF
+------------------------------------------------------------------
+Plugin for vscode
+vscode cfnag plugin for cloud formation that gives recommendation.
+URL::https://github.com/stelligent/cfn_nag
+
+Recommendation of the tool.
+•	IAM rules that are too permissive
+•	SG rules
+•	Encryption that isn't enabled
+•	Password strings
+
+2.python plugin cfn-lint
+Validate CloudFormation templates against the CloudFormation spec 
+Includes checking valid values for resource properties and best practices
+
+3. Taskcat
+Taskcat is a tool that tests AWS CloudFormation templates and generates report.
+
+Installation command
+#pip3 install taskcat  
+
+To run the test
+#taskcat test run
+
+
+
+Few Best Practices  for CF:-
+•	Layer your application reduce blast radius(separate files for each components::Modular)
+•	Resource imports for stack import,drift dection 
+	Use resource import for fix drift for resource states.
+•	Use Parameters and mappings, do not hardcode sensitive information.
