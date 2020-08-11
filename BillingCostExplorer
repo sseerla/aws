@@ -1,0 +1,6 @@
+Requirement
+Is it possible to get resouce(specfic ec2 instace) usage(in dollars) for last 3 months.
+
+Solution:-
+1. BILLING & COST MANAGEMENT->COST EXPLORER->MONTHLY SPEND by SERVICE VIEW(In this case select ec2)
+2. Under the tags  select the tag name:<name of the node>
