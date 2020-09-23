@@ -1,0 +1,60 @@
+• Systems Manager – Provides a unified user interface for viewing operational data from multiple AWS services and automating operational tasks across your AWS resources.
+
+• Systems Manager Inventory – Provides visibility into your Amazon EC2 and on-premises computing
+environment. You can use Inventory to collect metadata from your managed instances.
+
+• Systems Manager Patch Manager – Automates the process of patching managed instances with
+security-related and other types of updates.
+
+• Systems Manager Maintenance Windows – Let you define a schedule for performing potentially
+disruptive actions on your instances, such as patching an operating system, updating drivers, or
+installing software or patches.
+
+• AWS Lambda – Lets you run code without provisioning or managing servers.
+
+• Amazon QuickSight – Lets you easily create and publish interactive dashboards, including machine
+learning (ML) Insights. You can access dashboards from any device and embed them into your
+applications, portals, and websites.
+
+• Tagging – Lets you assign metadata to your AWS resources in the form of tags. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for,
+and filter resources.
+
+
+###Tags required---
+
+Step 1:-
+- patch Group:-
+Tag represents the servers within application env that are the targets to specific patch baseline.
+
+Note: A Patch group can be registered with only one patch baseline
+And instance can be part of only one patch group.
+
+
+>>Incase same application with different operating system.
+
+Example:- hitrack-dev-redhat
+ 		  hitrack-dev-debian
+
+-  maintaince window:- represents the schedule for patching the servers.
+All servers in Patchgroup should have same Maintenance window. 
+
+Maintaince window , you can specifu a timestamp in UTC format so that it can run all at spefic time.
+
+Rate expression:-
+cron(0 30 23 ? * TUE#3 *) ::-  third Tuesday of every month at 11:30 PM
+
+
+Schedule offset
+offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window. 
+
+if the scheudle offset is set to 2 the maintaince window wont run until 11:30 PM two day later.
+
+
+Step2:-
+System Manger Patch manager makes new patches available regularly OS specific.
+For Each OS you can define the custom patch baselines that includes the approval rules.
+
+Step3:-
+Apply patches to Patchgroup for Maintaince window Tags.
+After patching , application team verifies the servers
+Issues:- Halt patching to other patch groups and other env by disabling the maintenance window or deregistering the patch task execution.
