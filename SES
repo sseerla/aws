@@ -1,0 +1,17 @@
+Simple email Service
+---------------------
+
+One of the feature of SES is send email to everyone without verification
+- To send email to our domain 
+
+First- Create a domain in SES and create a TXT record entries(name,values)
+example 
+      apple.co.in
+second: - Ask the system admin team/DNS team to add txt record to apple.co.in DNS table with the concern of securiyt
+Third :- Wait till 48 hours, SES status will validated and able to send email within domain mention 
+
+
+Sandbox Mode and Production Mode
+-----------------------------------
+By default it will be sandbox mode, if mails needs to get delivered to whole world ,it needs to move to production mode.
+after validating txt record.
