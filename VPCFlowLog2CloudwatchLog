@@ -1,0 +1,57 @@
+Reference Guide
+https://medium.com/faun/how-to-setup-vpc-flow-logs-to-cloudwatch-log-group-ecf1a3d3ac0e
+
+
+
+Steps1:-
+Create a Cloudwatch Log group "VPCFLowlog"
+
+Step2:
+Create a IAM Policy
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents",
+        "logs:DescribeLogGroups",
+        "logs:DescribeLogStreams"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+
+
+
+Step2 :- Create a IAM role with Above Policy and Edit the trust Relationship with below policy
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "vpc-flow-logs.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+
+
+Step3: GO go the respective VPC and click create new flow logs.
+Add the Name, Loggroup Named created in step 1 and IAM role.
+You are done.
+
+
+Step4: Wait for some time you should be able see the logs in cloudwatch logs insights.
+
+
+UseCase:-
+TO insepcts the logs for any case Unusual activity
+To understand the stats of logs.
+
