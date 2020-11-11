@@ -1,0 +1,18 @@
+patching Notes:-
+
+Pre req steps:
+- Install SSM Agent and Attach SSMrole for EC@
+- Add the Tags Patch Group
+
+Step 1:-
+Create the maintaince window 
+ - mention the parameters like Maintaince window,occurace..etc
+
+After create of MW
+- Add the targets by providing the tags(patch Group)
+- Tasks:- Register a new task by adding Register a new run command
+      - AWS-RunPatchBaseline
+else
+we can add multiple AWS automation documents
+
+Note:- we can add one or more AWS documents.
