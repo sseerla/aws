@@ -6,13 +6,36 @@ Pre req steps:
 
 Step 1:-
 Create the maintaince window 
- - mention the parameters like Maintaince window,occurace..etc
+ - mention the parameters like Maintaince window,occurace..et
 
 After create of MW
 - Add the targets by providing the tags(patch Group)
 - Tasks:- Register a new task by adding Register a new run command
-      - AWS-RunPatchBaseline
-else
-we can add multiple AWS automation documents
-
+     - There is option to Register tasks as well as Automation
+     - Set the priority to tasks so that will iterate in that order.
+     
 Note:- we can add one or more AWS documents.
+
+
+Some good recommendation for patching
+############################################
+point 1
+##To View the Missing Patches before Patching
+Go to SSM --> Inventory ,Navigate to the bottom of the page.
+Select the instance and choose the patch option and filter for Missing state
+
+Point 2
+##As per AWS its better  use the option "rebootif needed" for patching
+SO that patches will be actived 
+
+Point 3
+## To exclude that patches there is option in the document "AWS-runPatchBaseline"
+Use the option "Install-override"mention the path of file contains the approved patch-list 
+
+Point4
+##
+we can attach multiple tasks to single Maintaince window 
+make sure we set priority for tasks
+Examples:-
+ - AWS-CreteImage ---> Automation Document
+ - AWS-PatchBaseLine --> To Patch the instance.
