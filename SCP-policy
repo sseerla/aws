@@ -1,0 +1,36 @@
+Service control policies (SCPs) are a type of organization policy that you can use to manage permissions in your organization. 
+SCPs offer central control over the maximum available permissions for all accounts in your organization.
+SCPs help you to ensure your accounts stay within your organization’s access control guidelines. 
+SCPs are available only in an organization that has all features enabled. 
+
+One of the samepl SCP 
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": [
+                "account:EnableRegion",
+                "account:DisableRegion",
+                "aws-portal:Modify*",
+                "cloudtrail:DeleteTrail",
+                "cloudtrail:PutEventSelectors",
+                "cloudtrail:StopLogging",
+                "cloudtrail:UpdateTrail",
+                "config:DeleteConfigRule",
+                "config:DeleteConfigurationRecorder",
+                "config:DeleteDeliveryChannel",
+                "config:StopConfigurationRecorder",
+                "ec2:DeleteFlowLogs",
+                "guardduty:DisassociateFromMasterAccount",
+                "iam:CreateUser",
+                "organizations:LeaveOrganization",
+                "route53domains:RegisterDomain",
+                "securityhub:DisableSecurityHub",
+                "securityhub:DisassociateFromMasterAccount"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
