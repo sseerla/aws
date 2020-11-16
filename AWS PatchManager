@@ -39,3 +39,34 @@ make sure we set priority for tasks
 Examples:-
  - AWS-CreteImage ---> Automation Document
  - AWS-PatchBaseLine --> To Patch the instance.
+ 
+ 
+ 
+ How patching working with AWS
+ ##################################
+ AWS will download all the updates and places in s3 bucket,RHUI pulgin will download the patches from the s3 bucket places to nodes.
+ Patch manager will disable all the repos in server and enables only the required and enables back it back.
+ 
+ 
+ 
+ First thing to check before patching 
+ Step 1
+ >>Checking the BP number
+ >>check bpCode
+ curl --silent http://169.254.169.254/latest/dynamic/instance-identity/document | grep billingProducts
+  "billingProducts" : [ "bp-6fa5XXXX" ],
+  ---make sure you get the number before patching
+  
+  Step 2:
+  Make sure its disabled in both the files
+  /etc/yum/pluginconf.d/product-id.conf
+  /etc/yum/pluginconf.d/subscription-manager.conf
+
+  step 3:-
+  yum clean all.
+  
+  
+  Linux work around to handle Multilib errros
+   rpm -e --justdb --nodeps iptables
+ rpm -e --justdb --nodeps <packageName>
+
