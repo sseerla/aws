@@ -70,3 +70,5 @@ Examples:-
    rpm -e --justdb --nodeps iptables
  rpm -e --justdb --nodeps <packageName>
 
+##Patching Tracking Log file in ec2
+/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json
