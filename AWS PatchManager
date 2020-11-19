@@ -16,6 +16,12 @@ After create of MW
      
 Note:- we can add one or more AWS documents.
 
+Question 
+Q. How do I get updates and regular patches for Amazon EC2 instances running Red Hat Enterprise Linux?
+Red Hat Update Infrastructure (RHUI) is maintained by Red Hat in each AWS region and can be accessed to get regular updates and patches. 
+Red Hat Enterprise Linux instances will have access to the regional repositories to receive incremental updates and is included in all prices.
+
+
 
 Some good recommendation for patching
 ############################################
