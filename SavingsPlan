@@ -1,0 +1,29 @@
+Savings Plan
+
+- Telling Amazon we are committing to use your compute for X amount per hour
+for 1-3 years term. Under a plan then you continue to use resources as per the discounted
+pricing, till you exhaust the X amount in an hour.
+if you use more than X mount, you are charged On demand rates.
+
+- Savings plans only helps with discounts and not capacity Reservation.
+
+Go for "On Demand Capacity Reservation" if you want capacity Guarntee.
+
+
+
+Benefits
+- Regional Benefits
+- Convertiable ROs
+- Instance size Flexibility
+
+
+
+
+
+work Loads running 24*7 there are two options either go with RI or Saving Plan 
+what is the difference>>
+RI vs savings plan
+-----------------------
+Both are having save discount, RI dont have the flexibility of changing OS,AZ,tenancy,instance Size
+
+What about Workloads which are not running 24*7 :- Scheduled Reservation
