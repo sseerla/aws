@@ -1,0 +1,92 @@
+AWS Reinvent Notes 2020
+
+AWS started with Intel --> AMD--> AWS Graviton.
+
+Graviton
+ - 64 bit ARM architecture.
+Nitro Security Chip :- protects the firmware changes,
+Nitro cards:- EBS disk,ENA
+Nitor Hypervisor :- 
+
+
+A1 - First Graviton Instances.
+G2 :- 7x Permance 4x
+
+Instances Catogeries
+---------------------
+M6g :- General Purpose
+- Application servres,small dbs,containers
+
+T4g:- Burstable General purpose work load
+- 
+
+C6g :- compute intensive
+- Games,HPC, video encoding
+R6g :- Memory Intensive workload
+- DB,Analytics
+
+Options wil Local Nvme Storage
+
+
+OS Supports :- Am2,RH,SUSE,Centos,Ubuntu,Debian.
+Containers :- Dockers,ECS,EKS,ECR,Fircracker(MicroVms)
+
+
+Supporting
+----------------
+Any Interpreted and compied-bytecode language can run without
+modification :- Python Java ruby php Node.js
+.net core supports Linux and arm64
+
+Compied applications will need to need to recompile in arm64 :- C,C++,Go,Rust
+
+Most AWS tools and SDKs support Graviton  :- AWScliv1,2 cloudwatch agent,SSM agent
+SDKs, :- Node.js,Python,Go,Java,.Net
+
+
+Aws ECS and EKS supports G1 and G2 instances,including mixed X86 and ARM cluster
+
+Amazon ECR supports Multi-arch 
+
+DB:- Cassandra,Mariabd,Memcache,MongoDB,MYSQL,Redis
+Configur & Monitor :- Chef,Datadong,NewRelic,Splunk,Terraform
+Secure :- Qaulys,
+
+
+
+UseCases:
+-----------
+1.Amazon ElasticCahe now supports M6G and R6G Graviton2 base based instances.
+Graviton2 instances are now defaul choinces
+
+2.Amazon RDS M6g and R6g
+MySQL,MariaDB,Postgres
+
+3. EMR
+
+Commings Soon: - ELB and Aurora
+
+
+Comparision
+-------------
+m5.large vs M6g.large
+
+
+Migration
+----------
+1. Idenity all libs,dependencies and agents in you produdction
+- Language stad and open source libs
+- Monitoring,logging or security daemon or agents
+
+
+Migration Stage2
+Test --> 
+ All tests should support multiple architectre and that many mean writing tests
+
+Update -->
+
+Deploy :- Blue green Dployment , Go with Weighted policy
+
+
+WorkLoads
+-------
