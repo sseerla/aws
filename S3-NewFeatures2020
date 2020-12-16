@@ -1,0 +1,44 @@
+
+2020:-ReinventNotes
+s3 Acess Points
+----------------------
+All the users would access objects directly through the bucket using the bucket hostname
+Simplified Ctrl for shared bucket access by many teams
+
+A bucket can connect multipe AP(Access Points)
+
+Acess Points can be configured to limit access to a specified VPC only
+
+- A distict policy to the access point among different access point for different AccessPoint
+
+
+S3 Event notification
+---------------------
+Reliable and Scable notificatiins
+
+At-least once delivery
+Muliple delivery destionation
+Low Latency and no charges
+Notificatons on create,delete,restore,replcation time control
+
+SQS,SNS,Lambda
+
+strorage lens
+--------------------------
+15 usage Metrics,14 activity metrics
+- Total Storage
+- Object count
+- Avg object size
+#Buckets
+#Accounts 
+Request(GET,PUT)
+Errors
+Ingest Rate
+Retrival Rate
+Aggregation lvels;- org,accounts,region,storage lens,
+Refresh :- daily updates
+Data Retention:- 15 months
+Interactive dashboard
+Recommendations :- Best practices
+Insights :- Fasted growing bucket,How much storage for entire organization,
+
