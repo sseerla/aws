@@ -1,0 +1,34 @@
+
+EC2 instance reblance
+- A new signal that notifies when spot  instances is elevated at the risk of intrruption
+- THe signal that will arrive sooner  than 2 minutes spot
+instance intrupption
+- prevents scheduling of work to the instance that is risk of intrupption
+
+
+Capacity Rebalance
+- new feature for proactivrly managing the Amazon EC2 spot instnaces lifecycle in Auto Scaling group
+- Instances the emphasis on availability
+- Provides a seamless and automated experience for maintaining desired capacity
+
+
+How does Capacity Rebalance Works:-
+----------------------------------------
+EC2 Auto Scaling  monitors for rebalnce recommadtions
+
+Proactively launches replacement capacity  for existing spot instances which are at the elevated risk
+
+Detaches from Elastic Load Balancer if necessary and executes the life cycles hooks
+
+Waits untils the new instances passes its health check before proceeding to termination of old spot instance
+
+
+
+
+Spots instance supports ECS
+
+
+AWS Batch 
+- Fully Managed 
+- Cost optimized resource provisioning
+- Allowcation Strategies :- spot capactiy optimized 
