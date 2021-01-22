@@ -1,0 +1,17 @@
+Attaching Role is one of the secure method to interact with AWS resources.
+
+###Tip to Expose the secret key and Access Key.
+export AWS_METADATA_URL=http://169.254.169.254/latest/meta-data/iam/security-credentials/<RoleNmae>
+
+env | grep AWS_METADATA_URL
+AWS_METADATA_URL=http://169.254.169.254/latest/meta-data/iam/security-credentials/<RoleNmae>
+[root@ip-10-80-1-123 terraform]# curl http://169.254.169.254/latest/meta-data/iam/security-credentials/<Rolename>
+{
+  "Code" : "Success",
+  "LastUpdated" : "2021-01-22T14:25:59Z",
+  "Type" : "AWS-HMAC",
+  "AccessKeyId" : "ASIAWTKJH4XXXXXXXXX",
+  "SecretAccessKey" : "XXXXXXXXXXXXJ86QFFOFBG2",
+  "Token" : "IQoJb3JpZ2luX2VjEOf///////XXXXXXXXXXXXXXXXXXXXAIgPqbBa5aUs2y4NW0oh7geK0+vz3bmGwKdT/Qw+M/d874qvQMIwP//////////ARACGgw0NTM4MDk1MzA2ODgiDHqoVdrrtxxxxxxxxxxxxxg64xDDTAzNWrqC7Jt6SXCu8TXrW9eGiyuE5DPGhkbk+RZgKNfvxasAi9QYMUFuZJmJU1MudNLwCk7R0Qs3cEELIQgVpPu3isEQv7BMeiNiMl5Zl57LOc0yMpOrkUONMmXNifc3mxfHjkd9PQ0oWKzpxCYVQYb/QszJx84QME8AIEwzANLkwqh6CzBtQlPA==",
+  "Expiration" : "2021-01-22T21:00:36Z"
+  }
