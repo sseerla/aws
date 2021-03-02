@@ -3,3 +3,13 @@ Assinging Tag policies
 
 We can assign tag policies in AWS master account to enforce them in the child accounts.
 AWS org is component where we write tag policies to underlying child accounts.
+
+
+In AWS organizationsm, we can attach Policies(SCP) at OU levels as well as in the account level
+Example:-
+OC1 :- policy1
+  - AC1
+  - AC2--policyAccount
+  - AC3 
+
+All the accounts will have policy1 and Ac2 will have policyAccount(which we set at account level)
