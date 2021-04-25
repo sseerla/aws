@@ -1,0 +1,10 @@
+
+##To install system manager agent in ubuntu 
+
+sudo snap install amazon-ssm-agent --classic
+To start the agent
+systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
+
+#snap list amazon-ssm-agent
+Name              Version    Rev   Tracking         Publisher  Notes
+amazon-ssm-agent  3.0.529.0  355  latest/stable/…  aws✓       classic
