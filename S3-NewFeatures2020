@@ -23,7 +23,7 @@ Notificatons on create,delete,restore,replcation time control
 
 SQS,SNS,Lambda
 
-strorage lens
+storage lens
 --------------------------
 15 usage Metrics,14 activity metrics
 - Total Storage
