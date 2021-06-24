@@ -4,6 +4,9 @@ AWS Inspector
 Amazon Inspector is an AWS managed service that enables you to run vulnerability assessments on your instances with little to no configuration.
 suported OS: Linux and windows server is based around rules packages which define types of vulnerabilities to check for.
 
+ec2 vulnerabilities automated security assessment service that helps improve the security and compliance of applications deployed on AWS.
+install the client on AWS ec2
+
 step1:
 Need to define an assessment which is a set of tags that will determine which resources include in the assessment.
 
