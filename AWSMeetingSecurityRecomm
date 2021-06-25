@@ -1,0 +1,9 @@
+#Had a meeting AWS below are security recommendations
+
+- Cloud Trail logs :- Enable
+- Guard duty is active in all the Accounts.
+- Implement control Tower
+		- Guard grails
+- SCP :- saying buckets not in public.
+- AWS config
+- security Hub
