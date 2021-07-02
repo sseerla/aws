@@ -1,0 +1,143 @@
+AWS IAM
+AWS Identity and Access Management (IAM) enables you to manage access to AWS services and resources securely. Using IAM, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+
+Hands on:
+How to create IAM users.
+How to create Groups.
+How to create Alias Name IAM link. 
+How to Assign IAM users to groups.
+AWS credentials and use cases
+Enadbling MFA.
+Policy and creating policy 
+IAM Roles
+IAM Best Practices
+
+
+IAM is global service, no need to select the region 
+
+
+
+Groups:
+-------
+Groups contains users not groups and A user can be member of any group.
+
+Dev:
+user1
+user2
+
+operations:
+user 3 
+user 4
+
+Audit:
+user2
+user3
+
+
+
+IAM policy
+--------------
+
+IAM policy Strucutre
+----------------------
+version :-Policy Language include "2010-10-17"
+ID:- an identifer for the policy
+statement:-
+		- SID :- identifier of the statment
+		   EFFECT;-  Wheather to allow or deny
+		   Principal;- Account/user/role to which this is applied to
+		   Action;-  list of actions  this policy allows or denies to
+		   Resources:- list of resource which applied to 
+conditions ;- conditions of policy
+
+
+Examples:-
+Review a Admin policy and Readonly examples.
+
+
+How to Create policy
+-----------------------
+1. Visual editor
+2. Manual
+
+
+3 Modes of user Access
+- AWS management console
+- IAM keys AWS command line
+- SDK for code; protected by access keys.
+
+Setting up of passwords;-
+strong password :- higher security for you account
+In AWS, you can setup a password policy;-
+ - set minimum length
+ - require specific chars
+ - inc upper chars
+ - lowercarsletter
+ - numbers
+
+##Setting up second level defence
+MFA
+
+Apps available are 
+- Google Authenticator
+- Authy
+
+
+#AWS Access Keys,CLI and SDK
+AWS keys are just like a password :- Dont share with any of them.
+Inorder to access AWS components  we can use cli :-
+  - more like creating instances
+  - creating s3 buckets
+
+ SDK
+ - Enables you to acess and manage AWS services programatically
+ - Embedded with your own organizatios
+ - supports
+     javascript,pythonPHP Net,Ruby
+
+
+#Components of a policy.
+Effect – whether the policy allows or denies access
+Action – the list of actions that are allowed or denied by the policy
+Resource – the list of resources on which the actions can occur
+Condition (Optional) – the circumstances under which the policy grants permission
+
+
+
+##IAM roles:-
+When a components need to talk to another componets, we generally use Roles attached to source coponents.
+
+
+
+##IAM Security Tools:-
+
+IAM credential report
+a report that lists all your accounts users and status of your various creds
+
+IAM Access Advisor
+Access Advisor show the service permission granted to a user and when those services are last accessed.
+
+
+
+
+Best practices of IAM
+---------------------
+
+- Lock away your AWS account root user access keys
+- Create individual IAM users
+- Use user groups to assign permissions to IAM users
+- Grant least privilege
+- Get started using permissions with AWS managed policies
+- Validate your policies
+- Use customer managed policies instead of inline policies
+- Use access levels to review IAM permissions
+- Configure a strong password policy for your users
+- Enable MFA
+- Use roles for applications that run on Amazon EC2 instances
+- Use roles to delegate permissions
+- Do not share access keys
+- Rotate credentials regularly
+- Remove unnecessary credentials
+- Use policy conditions for extra security
+- Monitor activity in your AWS account
+     - Using AWS cloudtrails, CLoudWatch, AWS config 
