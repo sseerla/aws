@@ -1,0 +1,33 @@
+#How to enable the cloudwatch logs in cloudtrails logs.
+
+
+#policy to Enable to Cloudlogs for cloudtrails
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSCloudTrailCreateLogStream20141101",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-west-2:<AccountID>:log-group:CloudTrailMaster:log-stream:<AccountID>_CloudTrail_us-west-2*",
+                "arn:aws:logs:us-west-2:<AccountID>:log-group:CloudTrailMaster:log-stream:o-<orgid>*"
+            ]
+        },
+        {
+            "Sid": "AWSCloudTrailPutLogEvents20141101",
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-west-2:<AccountID>:log-group:CloudTrailMaster:log-stream:<AccountID>_CloudTrail_us-west-2*",
+                "arn:aws:logs:us-west-2:<AccountID>:log-group:CloudTrailMaster:log-stream:o-<orgid>_*"
+            ]
+        }
+    ]
+}
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
