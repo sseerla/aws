@@ -4,6 +4,7 @@ AWS Identity and Access Management (IAM) enables you to manage access to AWS ser
 Hands on:
 How to create IAM users.
 How to create Groups.
+what is meant by ARN
 How to create Alias Name IAM link. 
 How to Assign IAM users to groups.
 AWS credentials and use cases
@@ -32,6 +33,23 @@ user 4
 Audit:
 user2
 user3
+
+
+
+## ARN Amazon Resource Name
+An Amazon Resource Name (ARN) is a file naming convention used to identify a 
+particular resource in the Amazon Web Services (AWS) public cloud
+
+syntax
+arn:<partition>:<service>:<region>:<account-id>:<resource-id>
+Partitions:- aws, aws-cn,aws-us-gov
+service:s3,ec2
+Accountid:- 123456789
+resource-id instance/
+
+
+arn:aws:s3:::my_corporate_bucket/*
+arn:aws:iam::123456789012:user/Development/product_1234/*
 
 
 
