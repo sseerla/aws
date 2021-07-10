@@ -1,1 +1,47 @@
 https://www.airpair.com/aws/posts/building-a-scalable-web-app-on-amazon-web-services-p1
+
+
+
+Introduction and why do we need to Cloud Computing
+Private and public clouds
+AWS
+ - Infrastruture
+ - understanding Managed and unmanaged services.
+ - Pricing model. 
+ - AWS services
+ - 
+
+
+AWS Global Datacenter
+---------------------
+- 20 Regions  + 5 soons
+- 61 Availability zones
+- 158 Edge locations 
+- 11 Regional caches
+- 130 services.
+
+Regions = Independent Geographic Area
+Availability Zones:- Multiple isolated locations and data centers.
+
+
+
+AWS services
+-----------------
+
+
+Storage services
+
+
+AWS application and Development services
+---------------------------------------
+- API gateway
+- code commit
+- SQS
+- Code build
+- SNS
+- SES
+- Cognito
+- code commit 
+- code build
+- Code Deploy
+- Code star
