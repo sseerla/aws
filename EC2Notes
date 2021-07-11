@@ -1,0 +1,157 @@
+EC2 Notes
+-------------
+EC2
+   - EC2 basics and understanding the console
+   - EC2 instance types
+   - Instance family
+   - Creating Instance,Security group.
+   - Pem and ppk file
+   - AWSCLI and configure AWS keys
+   - Upgrade the instance.
+   - AWS Metadata information.
+   - Attaching Roles.
+   - Create IAM users using cli
+   
+ 
+ - AMI overview
+ - Create a new AMI
+ - Creating instance from AMI
+ - Private IP and public IP
+ - EBS volumes types
+ - Creating and Attach EBS volumes
+ - Securing EBS volumes
+ - Creating SNAPSHOTs
+ - Understanding EC2 placement group, hibernate, nitros and new generation instances.
+ - spot instances vs Reserved instances.
+ - Install SSM Agent
+ - Install Cloudwatch Agent
+
+keywords :- cpu credits, 
+
+EC2 Instances types and Instance Family
+############################################
+General Purpose: The most popular; used for web servers, development environments, etc.
+General Purpose A1 :- ARM based offereings
+GO M5 :- 
+
+Compute Optimized: Good for compute-intensive applications such as some scientific modeling or high-performance web servers.
+C5
+
+Memory Optimized: Used for anything that needs memory-intensive applications, such as real-time big data analytics, or running Hadoop or Spark.
+Hugely memory intensive, real-time databases such as SAP HANA.
+R5 R5a
+
+
+Accelerated Computing: Include additional hardware (GPUs, FPGAs) to provide massive amounts of parallel processing for tasks such as graphics processing.
+X1, X1e
+P3: These are the general GPU offerings, good for machine learning and offering robust parallel processing abilities.
+G3: These are the GPU offerings that are specialized for graphics-intensive tasks such as rendering, encoding, and streaming.
+F1: These are instances that offer FPGAs for accelerated processing. You can leverage the FPGAs multiple ways over time for different enhancements, and all this is aided by custom FPGA-specific AMIs (called AFIs) that offer quicker deployment and development options compared to conventional FPGAs.
+
+
+Storage Optimized: Ideal for tasks that require huge amounts of storage, specifically with sequential read-writes, such as log processing.
+H1 and D2 instances are part of the Dense storage offerings that provide high sequential read-writes for large data sets, such as in distributed Hadoop deployments. H1 and D2 instances provide immense storage on HDD, with H1 providing a maximum of 16 TB and D2 providing a maximum of 48 TB
+
+
+Types of instances
+- on demand
+- Reserved Instances
+- spot instanes.
+
+Ondemand
+--------
+Pay for what you use,No unfront fees,no commitments
+
+Reserved instances
+------------------
+Upto 75% discount , Compared to ondemand
+Maximum savings :- Pay upfront for long term commitments
+Reserve Specific instance types
+we need to reserve instance for minimum of 1 year.
+
+- convertable ReserveInstances
+   upto 54 % discount  
+
+- Spot instances
+  can get 90% cheaper than on demand instances.
+
+ Dedicated hots
+ A physical machines with more visibility into undelying sockets/physical cores of hardware.
+ More expensive.
+
+Placemen group;
+if you want to control the ec2 instance placement
+- Cluster :- low latency single AZ
+Usecase:- If the application requires extremly low latency and high throughput,Big data job that needs to complete fast.
+
+-Partitions:- Spreads instances across many different partitions
+			Partitions are setup racks, within AZ we have different partitions
+Usecase: HDFS,Hbase,Cassandera
+
+ENI :- Its the logical components in a VPC, that represents a virtual network card.
+An instance can multiple ENI
+
+
+Security group
+--------------
+ 1. Security groups are the central component of AWS firewalls.
+
+3.Categorize your security groups.
+Web servers will have one SG and all DB can have another security groupp.
+
+4.Use proper naming conventions for your security groups.
+Have proper naming conventions for the Amazon Web Services security group
+
+Example:-
+AWS Region+ Environment Code+ OS Type+ Tier+ Application Code’
+Security Group Name – EU-P-LWA001
+AWS Region ( 2 char ) = EU, VA, CA etc
+Environment Code (1 Char) = P-Production , Q-QA, T-testing, D-Development etc
+OS Type (1 Char)= L -Linux, W-Windows etc
+Tier (1 Char)= W-Web, A-App, C-Cache, D-DB etc
+Application Code ( 4 Chars) = A001
+
+5.Don’t open ports for 0.0.0.0/0 unless specifically required
+Allowing incoming access by opening up ports for 0.0.0.0/0 in security groups is the most common mistake made by professionals when provisioning resources. Users end up opening their cloud networks and exposing their cloud resources and data to outside threats.
+
+6.Grant access from specific Amazon EC2 security groups or particular IP addresses for any security group rule.
+
+“Amazon Relational Database Service (Amazon RDS) has security group configurations which are examined explicitly, and a warning is released if a rule for security group grants or is probable to grant excessive access to your database. For any security group rule, it is recommended that access from only certain Amazon Elastic Compute Cloud (Amazon EC2) security groups or from a particular IP address should be granted.”
+
+7. Close unnecessary system ports.
+Close the ports if nolonger necessary.
+
+8.Regularly revisit your security groups to optimize rules
+
+9.Periodically audit security groups to identify those not following the established naming conventio
+
+Key based Authencation 
+-------------------------
+Private and public key pair , By default 
+otption :-  we can enable password authentication system 
+
+pem to ppk files
+- Using puttygen
+
+
+MetadaURL
+-------
+curl http://169.254.169.254
+
+Installing awscli
+---------------------
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+
+Configure Keys.
+aws configure
+
+aws iam create-group --group-name MyIamGroup
+aws iam create-user --user-name MyUser
+aws iam add-user-to-group --user-name MyUser --group-name IAMreadonly
+
+
+Attaching roles to ec2 instances
+---------------------------------w
+IAM role to create users.
