@@ -1,0 +1,63 @@
+
+s3 Notes
+---------
+One of the fundamental components
+- infinite scaling options
+- Many websites in the world run on s3
+- so many components are intergraged with s3
+
+Buckets
+Name shoud be globally unique
+Buckets should be defined in the regional level
+No upper case
+no underscole
+No Ip address
+
+Objects
+we can say objects inside the bucket.
+Max size of 5TB 
+we cannot upload a object greater than 5GB, we need to use multi-part upload.
+Each object can have 
+    - metadata 
+    -Tags:: useful for security/lifecycle
+
+
+How to open object in the s3 bucket=
+- click on the object :- which is using the presigned URL 
+- using the public  url // access denied.
+
+
+Versioning 
+--------------
+
+you can version your file in Amazon s3
+it is enabled at bucket level
+It wont overwrite 
+Its is best practice to verion your buckets.
+
+Notes:-
+Any file that is not versioned prior to enabling versioning will have versioning null
+Supending versioning does not delete the previous versions.
+
+
+while deleting the objects, it will create the delete marker first.
+if we have delete the objecet permanatly we need delete the delete marker
+(This will role back to previous version)
+
+
+S3 Encryption for Objects
+-------------------------
+
+4 methods to encrypt
+SSE-s3 encrypts s3 objects using keys handles and managed by AWS
+SSE-KMS leverage AWS key Management services to manage encryption keys
+SSE-C when you want to manage your own keys
+client side Encryptions
+
+
+SSE-s3
+Encryption using keys handled anad manged by amazon s3
+Objects is encrypted server side
+AWS-256 encryption side
+header :- x-amz-server-side-encryption "AES256"
+
