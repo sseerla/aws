@@ -1,12 +1,38 @@
 
 s3 Notes
 ---------
+The service offers unlimited storage space and stores your data in a highly available and durable way.
+
+Examples of object storage
+---------------------------
+Unstructured data such as music, images, and videos. 
+Backup and log files. Large sets of historical data. Archived file
+
+
 One of the fundamental components
 - infinite scaling options
 - Many websites in the world run on s3
 - so many components are intergraged with s3
 
+
+Consdering the performance EBS vs S3 
+------------------------------------
+Amazon EBS is faster storage and offers high performance as compared to S3.
+
+
+Considering the cost EBS vs S3
+-------------------------------
+Amazon S3 is cheapest for data storage al
+
+Usecases of Object storage
+--------------------------
+Compared to a traditional file system, the disadvantage of object storage is that data consistency is achieved only eventually. 
+Whenever you update a file, you may have to wait until the change is propagated to all of the replicas before requests will return the latest version. This makes object storage unsuitable for data that changes frequently.
+But it's a great fit for all the data that doesn't change much, like backups, archives, video and audio files, 
+and virtual machine images
+
 Buckets
+--------
 Name shoud be globally unique
 Buckets should be defined in the regional level
 No upper case
@@ -14,6 +40,7 @@ no underscole
 No Ip address
 
 Objects
+--------
 we can say objects inside the bucket.
 Max size of 5TB 
 we cannot upload a object greater than 5GB, we need to use multi-part upload.
