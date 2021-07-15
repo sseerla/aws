@@ -1,0 +1,13 @@
+IAM compliance rules
+
+- IAM Access Keys Rotation
+- Unnecessary IAM Access Keys not used > 90
+- Unused IAM Groups
+- Inactive IAM Users
+- Unused IAM Users password > 90 days unused
+- IAM Users with Password and Access Keys
+- IAM user having policy
+- IAM user password with inactive keys
+- IAM policy should not have resource  s3.* //No full access
+- IAM with old ssh_keys
+- IAM users with keys and password enabled.
