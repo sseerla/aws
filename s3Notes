@@ -104,6 +104,25 @@ Note:- we need public access else we will get 402 error.
 and allow public bucket policy.
 
 
+{
+  "Id": "Policy1626503741008",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1626503737024",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::<bucketname>/*",
+      "Principal": "*"
+    }
+  ]
+}
+
+
+
+
 
 
 s3 storage classes
