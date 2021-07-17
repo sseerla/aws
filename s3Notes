@@ -179,7 +179,8 @@ cheapest deep archival storage class
 
 S3 Event notifications
 -----------------------
-
+we can trigger a email whenever we receive a object in the s3 bucket.
+what we create a Events in s3 which will trigger SNS notification.
 
 
 
