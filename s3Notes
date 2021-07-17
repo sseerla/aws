@@ -88,3 +88,71 @@ Objects is encrypted server side
 AWS-256 encryption side
 header :- x-amz-server-side-encryption "AES256"
 
+
+
+
+
+
+
+s3 websites
+--------------
+s3 can host static websites and have them accessible on www.
+The website URL will be:-
+<bucket-name>.s3-website-<region>.amazonaws.com
+
+Note:- we need public access else we will get 402 error.
+and allow public bucket policy.
+
+
+
+
+s3 storage classes
+------------------------
+- s3 standard bucket
+- s3 1A (infrequent Access) ::- replicated to multiple availability zones
+- s3 one Zone - 1A ::-
+- s3 Intelligent Tiering ::- This will use Machine learning that move the to different classes
+- s3 Glacier
+- s3 Glaceier Deep Archive :- less frequently used(cheap option)
+   - less critical data
+
+s3 standard
+---------------------
+More than 3 replications 
+Highly durable,available,Fast retrival, costly
+usecases:-
+	critical data
+
+s3 IA
+------
+STD + less costly 
+minimum size of file is 128KB
+Directly we cannot move data to this class, object should minimum of 30 days.
+
+
+S3 one zone-1A
+---------------
+No replication
+less Durable
+lower cost
+less critical data
+
+s3 Intelligent Tiering
+-------------------------
+Designed to optimized the cost by automatically moving data to most effective access tier
+
+
+s3 Glacier
+----------
+It is low cost storage class
+data archiving
+Retrival times configratbale from minutes to hours
+infrequently access
+
+
+s3 Glacier Deep archive
+-------------------------
+12hr retrival time
+cheapest deep archival storage class
+
+
