@@ -175,3 +175,35 @@ s3 Glacier Deep archive
 cheapest deep archival storage class
 
 
+
+
+S3 Event notifications
+-----------------------
+
+
+
+
+Policy thats needs to included in SNS
+{
+ "Version": "2008-10-17",
+ "Id": "example-ID",
+ "Statement": [
+  {
+   "Sid": "s3-event-notifier",
+   "Effect": "Allow",
+   "Principal": {
+     "Service": "s3.amazonaws.com"
+   },
+   "Action": [
+    "SNS:Publish"
+   ],
+   "Resource": "<UPDATE-YOUR-SNS-ARN-HERE>",
+   "Condition": {
+      "ArnLike": {          
+      "aws:SourceArn": "<ARN of s3>"
+    }
+   }
+  }
+ ]
+}
+
