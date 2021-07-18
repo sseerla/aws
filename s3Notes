@@ -88,8 +88,29 @@ Objects is encrypted server side
 AWS-256 encryption side
 header :- x-amz-server-side-encryption "AES256"
 
+s3 policy Enable the  encryption while uploading the object,
+------------------------------------------------------------
 
-
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1626619936039",
+    "Statement": [
+        {
+            "Sid": "Stmt1626619928168",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::mynews3bucketanand/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption": "true"
+                },
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "AES256"
+                }
+            }
+        }
+    ]
 
 
 
