@@ -4,7 +4,8 @@ VPC
 #Create subnets
 #Create a RT and associate Subnets
 #Create a IGW
-
+#NAT gateway
+#VPC peering
 
 
 
@@ -38,3 +39,64 @@ Internet Gateway
 -----------------
 Which allows routes from VPC to internet
 THere can one IGW to one VPC which can be attached one 1VPCs
+
+
+NAT gateway
+-------------
+Managed instance
+Launched in the public IP 
+NAT gateways helps all the internet bound traffic from pvt instances to internet and replies back.
+Example:- DB server which requires the patches.
+
+whenever you delete the NAT GW, before removing the route in PVT RT you will see something called backhole.
+
+
+Modify Auto assign the public IP address
+------------------------------------------
+so when instances are  launched it get public subnet they get public IP address.
+
+
+Enable DNS hostname and DNS resolutions
+---------------------------------------------
+At VPC level Enable the DNS resolutions and DNS hostanmaes
+Provides internet to Private instances
+Create a NAT gateway in the public subnet and associate a new public ot that.
+
+Now add a new route to private RT withe source as 0.0.0.0/0 to NAT gateway.
+
+
+
+VPC peering.
+--------------
+why peering:- we connect 2 VPCS
+- Two departments under the same organization want to talk each other
+- company bought another company  which is in different Account.
+
+Without VPC peering they can talk to each other but they have to go via public subnets.
+
+whenever we create a vpc peering, owners of the VPC have to confirm the request, VPC can be same account or different account But conditions is they have to be in same region.
+
+
+Conditions
+- No overlapping IP ranges 2 VPCs
+- No transitive peering, IGW access across VPCs
+     -if VPC A connects to B and VPC B connects to C , it does not mean A can connected C
+     - IGW in VPC A cannot be shared to VPC B
+     - No NAT routing between the VPCs
+
+
+# TO peer the VPCs
+
+Step 1
+a.Click on the peering connection 
+- Enter the First VPC and choose "MyAccount/other Account" and Enter the destination VPC 
+b.Accept th peering connection
+
+Step 2:
+Edit the RT of First VPC add route saying::-
+CIDR of Destionation VPC  to VPC-peering ID
+
+and 
+
+Edit the Destination VPC and route saying
+CIDR of source VPC to VPC peering
