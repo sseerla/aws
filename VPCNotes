@@ -1,0 +1,40 @@
+VPC
+#Formula to calculate the IPaddress
+#Create a VPC
+#Create subnets
+#Create a RT and associate Subnets
+#Create a IGW
+
+
+
+
+##How to calculate the IP address
+Formula to count the IP address available
+- 10.0.0.0/8  :- 2 ^ (32-8)   2^24 :- 16777216
+- 10.0.0.0/16 :- 2 ^ (32-16)  2^16 :- 65536
+- 10.0.0.0/24 :- 2 ^ (32-24)  2^8  :- 256
+- 10.0.0.0/32 :- 2 ^ (32-32)  2^0  :- 1
+
+Notes:-
+- subnets cannot clash between each other
+- whenever we create IP address in amazon 5 IP address are reserved for internal usage.
+   - First 4 and last 1 Ip address 
+
+
+
+Route tables
+------------
+For Each VPC a route table will be created. // Default route table.
+Two route table for public and other for private route table.
+if there is no route table created All the subnets will be associated with default RT
+
+Subnet Association
+- Click on the RT, enable the association of subnets
+
+One subnet can only have 1 RT, But I
+
+
+Internet Gateway
+-----------------
+Which allows routes from VPC to internet
+THere can one IGW to one VPC which can be attached one 1VPCs
