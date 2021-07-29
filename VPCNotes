@@ -100,3 +100,34 @@ and
 
 Edit the Destination VPC and route saying
 CIDR of source VPC to VPC peering
+
+
+VPC Endpoints
+-------------
+A VPC endpoints enable private connections between VPC and supported AWS services
+- They dont require 
+- Direct connect 
+- NAT gateway
+- VPN connection
+- internet gateway
+
+There are two types of VPC endpoints
+- Interface endpoints
+- Gateway endpoints.
+
+what is the meaning of ENDpoints:
+endpoint:- it could be an interation points for communications
+It could be a URL where your service can be access by a client application
+
+
+Gateway endpoints;- DynamoDB and s3 which uses the route tables
+Elastic Endpoints:- Kinesis :- which uses the ENI
+
+
+Notes:
+try to connect a s3 from a private instances
+
+https://www.youtube.com/watch?v=CMrFIv3a29w
+Step1;-
+Click the Endpoints, search for s3 in the drop down and select the private route table 
+which will automatically add a route to private route table.
