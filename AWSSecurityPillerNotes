@@ -1,0 +1,105 @@
+------------------------------------------------
+Well Architect 
+Security Aspects
+
+Shared Responsibility
+AWS will provide the tools, But the implementation part is us.
+
+Customer responsiblity will be determined by the AWS cloud services that  customer selects.
+
+
+AWS is responsible for protecting the infrastrature that runs all the services
+offered by the AWS cloud.
+
+
+
+Security Piller describes how to take advantage to protect data system and assets in a way to improve your security posture.
+
+Few principles;-
+- Improve a string identity foundations.
+- Enable traceability
+- Apply security at all the layers
+- Automate security best practices
+- Protect data in transit and at rest(Enable Authention/Authorization for third party people)
+- keep people away from data
+- prepare for security events.
+
+Few components are 
+- IAM Management: 
+- Infrastrucutre protection
+- Detection 
+- Data Protection //WAF 
+
+
+
+
+##Identiy and Access Managment
+-------------------------------
+- Human identites
+- Machine identites 
+
+- Use strong sign-in mechanisms--Okta SSO
+- use temporary credentials
+- Audit and rotate credentials periodically 
+- Store and use secrets securely 
+
+
+Permission Management
+-----------------------
+Grant least privilages access
+Analyze public and cross Account access
+share resources securely 
+
+
+##Detection 
+Configure service and Application logging
+In AWS,services that can implement this
+base set include:-
+ - AWS cloudtrail
+ - AWS config
+ - AWS Guardduty
+ - AWS security Hub
+
+Analyze logs, findings and metrics centrally
+
+
+Investiage
+AWS Recommends "we should have a runbook or playbook that should trigger when a Event happens"
+
+More like when 
+
+
+Implement actionable security events
+Automate response to events::
+- Amazon Event Bridge  /cloudwatch event.
+- AWS config Rule Development Kit
+
+
+
+How are you protecting  access to and user AWS root account creds.
+MFA and minimal use of root
+Dont use the ROOT account
+
+How are you defining responsbilities to contral human access to AWS 
+Using Minimum privilages
+
+How are you analyszing the and capturing logs.
+AWScloud trails.
+
+
+Infrastructure Protection
+--------------------------
+>> protecting  Networks
+Create network layers
+- AWS transit Gateway
+Control traffic at all layers
+Implement inspection and protection
+Automate network protection 
+ - AWS WAF
+
+
+Protecting compute
+Perform vulnerbility management
+- AWS Image Bilder
+- ECR Image scanning
+- AWS Inspector.
