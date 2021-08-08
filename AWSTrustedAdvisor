@@ -1,0 +1,33 @@
+
+AWS Trusted Advisor
+Trusted Advisor inspects the AWS Accounts and provides the best practices when you have opportunity to 
+save Cost,Performance,Security Gaps,Fault Tolerance and Service limits
+For Each domain it will show 3 status.
+- Green :- OK
+- yellow :- Warning
+- Red :- Error
+
+Total 110 checks
+9 :- CO
+17:
+24:- FT
+50:- service limit
+Cost optimization::- $XX saves per month
+
+
+Business/Enterprise plans
+- can access all AWS Trusted Advisor checks
+- can access checks via support API
+- can setup Cloudwatch events 
+- Get their checks automatically refreshed every week.
+
+
+Recent Changes :- will show all the recent checks
+
+
+In Trusted Advisor,we have an option to Exclude and include the checks
+
+
+- Free for certain features.
+
+- Weekly Billing details 
