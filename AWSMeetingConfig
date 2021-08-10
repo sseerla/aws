@@ -1,0 +1,45 @@
+Best practices of Config
+Tips for lowering Cost
+Deployment process of conformance packs.
+Opscenter/Explorer
+
+
+
+Best pratices:
+-------------------
+- Enable All the resources.
+- Configure central s3 bucket(so that further extended to Athena/Quicksights)
+- Use AWS SSM documents to do Remadiation
+- Use RDK(Rules develpment Kit) to create custom rules we can deploy locally 
+
+Tips for lowering cost
+------------------------
+1.AWS config is regional service, No Need to checkin for Global resources(IAM) in all regions
+2.Enable the evaluation when there is config changes 
+    - scheduling the rule every period(1hr or 1day) is not a good solutions -- increases the cost
+3. There is no need to import the aws security hub rules to config 
+
+Graphing of changes can be configure using below.
+- Opscenter
+- AWS explorer
+
+
+Deployment
+------------ 
+- Using stacksets
+- Quickset up
+- we can only use CLI to configure the comforpance packs in child accounts.
+
+
+
+comformance packs :- evaulation rules can be changed period 1 day.
+https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-prereq-config.html
+
+Opscenter 
+- who did the changes/what changes 
+- 
+
+
+Links
+https://aws.amazon.com/blogs/mt/aggregate-operational-tasks-with-aws-systems-manager-explorer-and-opscenter/
+https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-prereq-config.html -- disable the rules SH to config
