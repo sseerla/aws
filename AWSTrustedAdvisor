@@ -7,6 +7,17 @@ For Each domain it will show 3 status.
 - yellow :- Warning
 - Red :- Error
 
+There are 5 Pillors in trusted Advisor
+- Cost optimization
+- Performance
+- Security
+- Fault tolerence
+- Service limits
+
+Trusted Advisor has to deployed in the AWS Master account where you linked with organization.
+By Enabling the Organization in Trusted Advisor , you can Download the CSV report which have all the Alarming of understaing Accounts.
+
+
 Total 110 checks
 9 :- CO
 17:
@@ -26,8 +37,10 @@ Recent Changes :- will show all the recent checks
 
 
 In Trusted Advisor,we have an option to Exclude and include the checks
-
-
 - Free for certain features.
-
 - Weekly Billing details 
+
+
+
+
+
