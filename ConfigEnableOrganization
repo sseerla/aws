@@ -28,11 +28,21 @@ aws organizations list-aws-service-access-for-organization
     ]
 }
 
-
-
 step 2:-
 Loging to child Account 
 Navigate to config > Aggregator
 Create a new Aggregator, select organization as the accounts and Create a role with new name
 
 Once this done wait for 10-15minutes to get the services
+
+
+
+
+##Enable conformance packs in the organization
+In the master
+aws organizations enable-aws-service-access --service-principal=config-multiaccountsetup.amazonaws.com 
+aws organizations register-delegated-administrator --service-principal=config-multiaccountsetup.amazonaws.com --account-id=<delegated Account number>
+
+Organization deployment in delegated admin::-
+
+aws configservice put-organization-conformance-pack --organization-conformance-pack-name="OrgIAMConformancePack" --template-s3-uri="s3:/<S3 bucket of YAML>/Templates/iam_conformance_pack.yml" --delivery-s3-bucket=s3-hv-org 
