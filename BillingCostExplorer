@@ -4,3 +4,9 @@ Is it possible to get resouce(specfic ec2 instace) usage(in dollars) for last 3 
 Solution:-
 1. BILLING & COST MANAGEMENT->COST EXPLORER->MONTHLY SPEND by SERVICE VIEW(In this case select ec2)
 2. Under the tags  select the tag name:<name of the node>
+
+
+TO Download services reports monthly
+- click on the cost explorer 
+- select the month and click service as a option.
+- Download the report in CSV fasion
