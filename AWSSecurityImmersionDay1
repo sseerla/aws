@@ -1,0 +1,39 @@
+
+>>
+saml to aws
+git-secrets :- 
+
+https://github.com/awslabs/aws-shell :- With Auto completion
+Eventbridge with combination with cloudtrail
+
+cloudtrail--->Eventbridge--->lambda--->Alert
+
+cloudtrail lake:- store cloudtrail data
+
+Cloudformation-->cfnguard---Implementations 
+cfnguard::- will have the rules that needs to followed
+                Like s3 bucket should not public
+               EC2 EBS volume being the public
+
+
+
+Amazon Guard duty(can do )
+------------------
+VPC Logs + DNS logs + Cloudtrail events 
+
+
+DNS queries 
+Quest to port 22
+
+-----------------------------
+Security Hub
+              - Security Hub uses the AWS config
+
+Amazon Detective
+------------------
+check the API traffic
+
+<<<
+
+Lookup the resources at the OU level 
+-	Disabling the resources
