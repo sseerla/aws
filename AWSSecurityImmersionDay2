@@ -1,0 +1,17 @@
+Security 
+-	Enable Guard duty(Org Level) ,Security Hub, config, cloudtrails :- Enable all at the organization level.
+-	Amazon Inspector:- continuous scanning of the instances
+o	It can forward to reports to security-hub
+-	IAM access Analyser:: Will get you the activity based on the roles to usages(will provide Least privileges Access)         
+o	Based on the Past 90 policy 
+               IAM roles, Machines roles 
+               It will check all the roles, polices 
+                                                    
+Anythings with * in the policy ~ should be asked
+Access continuously  for least privilege  access with AWS IAM 
+
+Organization trail :- Enable 
+
+IF you have any application which is Web based on enabled AWS WAF  and implement OSASP Top10.
+
+Enable system manager to patch the OS
