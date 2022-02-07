@@ -1,0 +1,30 @@
+AWS backups supports
+>>
+EBS,DynamoDB,Storage Gateway,EFS
+
+
+Warm storage :- s3
+Cold storage :- Glacier :- opton to migrate to cold storage
+
+
+Step1:- 
+Create a vault using a KMS key
+
+
+Step2:-
+Build a backup Plan "new"
+- Name
+- daily/Monthly - Have option to customize the backup
+- Lifecycle transition 
+      - cold storage
+      - Delete the delete
+
+Step3 
+Resource Assingment 
+- Provide name
+- Either we provide the name or the resourceid 
+   - 
+
+---
+On demand backup plan
+where we create back ondemand 
