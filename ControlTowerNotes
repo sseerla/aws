@@ -1,0 +1,81 @@
+Control tower
+----------------
+self service tool , the easiest way to setup a  and govern a secure,compliant, multi-account environment based on best practices
+
+- Governance over sub accounts :- Set Restrictions to enforce policies and complaince to meet baseline security
+- An account-factory
+- Logging and Audit trails
+- Centralized Billing
+- Management Dashboard;- One dashboard view the complaince status of all AWS account in real time scenario.
+- User Managmenet
+
+Landing Zone 
+Landing zone is a well architect multi account enviroment based on AWS best practices
+
+Control Tower should be initated from the master Account 
+CT will create two OU called core and custom.
+Core OU  will create 3 Accounts  shared services, Log Archive and Security 
+
+Shared services Account : Default Account for AWS SSO integration
+Reference Account for creating shared service like AD
+
+
+Log Archive Account :- 
+Centrailized location to store Cloudtrail/Config logs :- logs are store in S3
+
+Security Account:- having Admin Role, Audior role
+Any Account Created will be mapped under Security Account
+Auditor Role will be readonly :- mostly given to Auditors 
+- 
+
+
+
+Best practices:-
+Organization thing.
+Notes:: Use Master Account only for Billing, don't use it any other resources.
+
+
+
+Accounts Baseline :- via Service Catlogs
+- Cloudtrail :- Trail for each account
+
+AWS config rules for below
+- EBS volume encryption
+- S3 encryption
+- RDS encryption
+- IAM password policy
+- root account MFA
+- S3 public R/RW
+- In Secure  security groups.
+
+IAM
+- user
+- Cross Account ROles
+
+VPC
+-  Delete default VPC on all Accounts
+-  
+
+Notifications
+- cloudwatch Alarams
+- Cloudwatch Events
+- root Account login
+- Console Sign  failures
+
+Amazon Guard duty
+- Enable for all the member Accounts
+
+
+
+
+Account Factory
+you can provision new Accounts and enroll existing Accounts, you can standize you account and n/w configration for creating multiple accounts
+
+
+Control Tower Limitations >> Need to check with AWS team members
+- Available at 4 regions only
+- will create max 2 pvt subnets
+- Will create 1 VPC
+- can use only for new accounts
+- cannot customize/add new guard rails
+- 17 preventive/2 detective Guard rails
