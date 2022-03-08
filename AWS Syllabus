@@ -19,7 +19,7 @@ NACL
 VPC peering
 
 #EC2
-Understand what is EC2 instnace
+Understand what is EC2 instance
 Instance Families
 - On-demand instances
 - Reserved Instances 
@@ -31,14 +31,14 @@ Attaching Roles to EC2
 Create Image 
 Exporting image to another Account
 Deleting Image
-Creating snapashot 
+Creating snapshot 
 
 #EBS volumes
 Types of EBS volumes
 Attaching EBS volumes to EC2
 
 #Load balancers
-ALB,ELB loadbalancers
+ALB,ELB load balancers
 Autoscaling EC2s
 
 #Cloudwatch 
@@ -61,7 +61,7 @@ Integrate Cloudtrail to cloudwatch logs
 #s3
 objects and buckets
 Uploading objects
-s3 versioing 
+s3 versioning 
 Enable s3 life-cycle 
 S3 permissions 
 s3 storage lens
@@ -74,7 +74,7 @@ Create static website using s3
 - Cost Allocation Tags
 
 AWS Compute optimizer
-- EC2 recomendations 
+- EC2 recommendations 
 - EBS volumes 
 
 #Security Modules
@@ -82,7 +82,7 @@ AWS config
 >>
 How to track the resources
 Queries against the resources
-Complaince monitoring 
+Compliance monitoring 
 
 SSM :- System Manager
 what is system manager
