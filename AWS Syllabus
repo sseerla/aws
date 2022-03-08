@@ -1,0 +1,91 @@
+#IAM 
+Understanding IAM users
+Activating MFA
+Generate 
+IAM user, Roles, policies
+Controlling access using policies
+- Managed 
+- Inline policies 
+Understanding SCPs
+Understanding Session policies
+
+#VPC
+VPC network
+Creating subnets
+Route tables
+Internet Gateway
+Nat gateway
+NACL
+VPC peering
+
+#EC2
+Understand what is EC2 instnace
+Instance Families
+- On-demand instances
+- Reserved Instances 
+- Spot instances
+Key based authentication 
+Attaching Roles to EC2
+
+#AMI and Snapshots
+Create Image 
+Exporting image to another Account
+Deleting Image
+Creating snapashot 
+
+#EBS volumes
+Types of EBS volumes
+Attaching EBS volumes to EC2
+
+#Load balancers
+ALB,ELB loadbalancers
+Autoscaling EC2s
+
+#Cloudwatch 
+Default Metrics 
+Enabling the cloudwatch metrics
+Cloudwatch Dashboards
+Cloudwatch Agent; configuring cloudwatch agent
+Cloudwatch logs
+
+
+#SNS
+Creating SNS topic and subscriptions
+
+
+#Cloudtrail
+Enabling the cloudtrails logs
+Integrate Cloudtrail to cloudwatch logs
+
+
+#s3
+objects and buckets
+Uploading objects
+s3 versioing 
+Enable s3 life-cycle 
+S3 permissions 
+s3 storage lens
+Create static website using s3
+
+
+#Costing and Billing
+- AWS calculator
+- Cost explorer
+- Cost Allocation Tags
+
+AWS Compute optimizer
+- EC2 recomendations 
+- EBS volumes 
+
+#Security Modules
+AWS config
+>>
+How to track the resources
+Queries against the resources
+Complaince monitoring 
+
+SSM :- System Manager
+what is system manager
+Patching the EC2s
+Login to ec2 via system manager
+Using Automation Documents 
