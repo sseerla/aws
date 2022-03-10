@@ -1,0 +1,45 @@
+EKS
+Managed kubernetes platform
+
+- AWS manages Master nodes
+- Necessary apps pre- installed
+- Scaling and backup
+
+
+1. VPC
+2. IAM role and security 
+
+A- Create Cluster control plane with the role 
+		- Choose cluster name, K8s version 
+		- Choose region and VPC for your cluster
+		- Set security for your cluster.
+
+B. Create Worker node and connect connet to cluster
+        - Create as a Node group(Group of nodes)
+        - Choose cluster it will attach to 
+        -  Define Security group, select instance type and resource
+        -  Define Max and min Nodes :- Autoscaling 
+
+
+C. Create worker Nodes and connect to cluster.
+
+
+#Another Method to do things Faster than Above
+EKSctl
+
+# Install EKSctl
+# Verify  eksctl version
+# eksctl create cluster \
+--name test-cluster
+--version 1.17
+--region eu-central-1
+--nodegroup-name linux-nodes
+--node-type t2.micro
+--node 2
+
+At the end of the Above command this will be cconfig kube config which will be the location ~/<username>/.kube/config
+
+#kubectl get nodes
+
+#To delete the cluster
+eksctl delete cluster --name test-cluster
