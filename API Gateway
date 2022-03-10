@@ -1,0 +1,38 @@
+API Gateway :- Is more like reverse proxy
+Full Managed service that makes it easy for developers to :- 
+- Create, publish, monitor develop APIs and secure APIs at any scal
+
+This module sits b/w users and services
+
+usecase:-
+Build a real world 2-way communications such as chat apps,streaming dashboards with Websocks
+- IOT devices
+- Web appication and streamng dashboards
+- Mobile Application
+
+
+Charges;-
+API Gateway has no fees you pay for API calls you receive and amount of data transferred
+
+API Gateway can hit a AWS lambda, AWS kinesis AWS EC2,DynamoDB
+
+
+Amazon API Gateway deployment
+-----------------------------
+
+Edge-optimized-endpoint 
+Amazon-cloud-front > API-Gateway  :- Reducned latency for request
+Regional endpoint > API Gateway :-  request from same region
+Private endpoint > API Gateway :- same vpc
+
+
+API Gatway - Caching 
+you can add caching to API calls by providing an Amazon API
+Gateway cache and specifying its size in GBs
+
+
+users > MYAPI > API_cache > Production 
+
+
+#API Gateway Throttling
+By default API Gateway limits the steady state request rate to 10,000 request per second
