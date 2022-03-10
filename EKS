@@ -39,6 +39,44 @@ EKSctl
 
 At the end of the Above command this will be cconfig kube config which will be the location ~/<username>/.kube/config
 
+
+Method1:-
+1.Cluster Creation 
+Create IAM ROle for service service "EKS cluster" and policy is Amazon EKSclusterPolicy
+select VPC and default subnets
+Cluster endpoint access
+Create cluster
+
+
+2.Create Node groups
+From the cluster select  compute -- > Add Node group
+Name of the Nodegroup
+IAM role for node group :- 
+		IAM roles--service "EC2"
+		Policy  :- 
+				- Amazon EKS worker Node policy
+				- AMazon EKS_CNI policy
+				- Amazon EC2containerRegistryReadOnly
+
+select instance type, disk size, Node group scaling configration 	
+Node group update configration :- which is minimum no of nodes that should be running 	
+
+
+aws sts get-caller-identity
+check if the aws version 1.9+
+aws eks --region <region> update-kubeconfig --name <name of the cluster>
+Install kubectl 
+kubetctl get nodes // This will show the nodes if the verify command is working properly
+
+kubectl create -f https://raw.githubusercontent.com/javahometech/kubernetes/master/pods/pods.yml
+
+#Kubetctl get pods.
+
+kubeconfig File
+Kubeconfig file is a way to organize information about cluster,users,namespaces and authentication mechanims
+so the Kubectl command-line tool uses kubeconfig files to find the information it needs about a cluster and to understand how to communicate with API server of that cluster
+
+
 #kubectl get nodes
 
 #To delete the cluster
