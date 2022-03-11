@@ -1,7 +1,8 @@
 #IAM 
 Understanding IAM users
 Activating MFA
-Generate 
+Generate Access and Security Key pair
+Rotate Keypair
 IAM user, Roles, policies
 Controlling access using policies
 - Managed 
