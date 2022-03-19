@@ -1,3 +1,11 @@
+Introduction to AWS
+
+Naviagte to AWS UI and dashboard
+Understanding AZs and Regions
+AWS Shared Responsibility Model
+
+
+
 #IAM 
 Understanding IAM users
 Activating MFA
@@ -11,6 +19,9 @@ Understanding SCPs
 Understanding Session policies
 
 #VPC
+Networking basics
+  - Understanding CIDR Notation
+
 VPC network
 Creating subnets
 Route tables
@@ -41,6 +52,10 @@ Attaching EBS volumes to EC2
 #Load balancers
 ALB,ELB load balancers
 Autoscaling EC2s
+  - Different scaling Models.
+
+#SNS
+Creating SNS topic and subscriptions
 
 #Cloudwatch 
 Default Metrics 
@@ -50,8 +65,7 @@ Cloudwatch Agent; configuring cloudwatch agent
 Cloudwatch logs
 
 
-#SNS
-Creating SNS topic and subscriptions
+
 
 
 #Cloudtrail
