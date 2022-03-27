@@ -4,6 +4,17 @@ Amazon EFS is a fully managed service for hosting Network File System (NFS) file
 It is an implementation of a NFS file share and is accessed using the NFS protocol.
 It provides elastic storage capacity and pay for what you use (in contrast to Amazon EBS with which you pay for what you provision).
 
+
+Features
+EFS is elastic is moves up and down based on usage
+It offers 99.99(11)% SLA
+it can support about 10k connections from containers,ec2,EKS,fargate,lambda
+500k IOPS,single digit latency and Gigabytes of throughput
+ 
+ 
+ ROW: Right is not acked until the data is durably written across all 3 availability zones
+ 
+
 Connectivity
 ------------------------------
 
@@ -26,7 +37,13 @@ Lifecycle management moves files that have not been accessed for a period of tim
 
 Performance Mode
     “General Purpose” performance mode is appropriate for most file systems.
-    “Max I/O” performance mode is optimized for applications where tens, hundreds, or thousands of EC2 instances are accessing the file system.
+     usecase:- Latency sensitive applications and GP workloads
+     35k read abd 7k write operations/s
+    
+    Max I/O performance mode
+     optimized for applications where tens, hundreds, or thousands of EC2 instances are accessing the file system.
+    Usecase:- Large Scal and data heavy applications
+    
 
 Monitoring and Reporting
 -----------------------
