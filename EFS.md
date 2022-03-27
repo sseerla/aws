@@ -89,12 +89,12 @@ Usecase: we can mount the 100 EC2 using one single command.
 
 DEV::Best Practices
 ---------------------
-Test in GP permofamnce mode first
-Start with Bursting  Throughput mode
-consider Provisioned Throughput mode  when ingesting > 2.1TB
-kernel vesion > 4.3+
-Multiple instances
-Multiple Directories
+      Test in GP permofamnce mode first
+      Start with Bursting  Throughput mode
+      consider Provisioned Throughput mode  when ingesting > 2.1TB
+      kernel vesion > 4.3+
+      Multiple instances
+      Multiple Directories
 
 Admin:: Best Practices
 --------------------------
