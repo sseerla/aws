@@ -35,7 +35,9 @@ Backups
 Automatic backups are enabled by default and use AWS Backup.
 Lifecycle management moves files that have not been accessed for a period of time to the EFS Infrequent Access Storage class.
 
-Performance Mode
+Mode of operations
+------------------
+    Performance Mode
     “General Purpose” performance mode is appropriate for most file systems.
      usecase:- Latency sensitive applications and GP workloads
      35k read abd 7k write operations/s
@@ -44,6 +46,22 @@ Performance Mode
      optimized for applications where tens, hundreds, or thousands of EC2 instances are accessing the file system.
     Usecase:- Large Scal and data heavy applications
     
+
+Throughput Mode
+---------------
+Brust Throughput mode 
+Default Mode , Recommed for the Majority of the workloads 50Mbs/1TB can burst upto 100Mbs/ITB
+Increased based on the size of file system
+Recommended Best choice start with this mode
+
+Provisionined Throughput Mode
+- we have the option the define through put as per the requirement only in 24 hours of interval
+- Higher and consistent throughputs workloads
+- User defined throughput
+- Loading more than 2.1 TB
+
+
+
 
 Monitoring and Reporting
 -----------------------
@@ -56,3 +74,33 @@ Logging and Auditing
 ----------------------
 Amazon EFS is integrated with AWS CloudTrail.
 CloudTrail captures all API calls for Amazon EFS as events, including calls from the Amazon EFS console and from code calls to Amazon EFS API operations.
+
+
+Security
+-----------
+You can encrypt the data in REST using KMS and encrypt data in transit using TLS 1.2
+HIPAA,GDPR,PCI-DSS,SOC,ISO,FedRAMP ::- Compliance
+
+
+Automation:: Integration with AWS system Manager
+------------------------------------------------
+Earlier we used mount the NFS manually , Now using the AWS using system Manager we can mount using AWS systems manager
+Usecase: we can mount the 100 EC2 using one single command.
+
+DEV::Best Practices
+---------------------
+Test in GP permofamnce mode first
+Start with Bursting  Throughput mode
+consider Provisioned Throughput mode  when ingesting > 2.1TB
+kernel vesion > 4.3+
+Multiple instances
+Multiple Directories
+
+Admin:: Best Practices
+--------------------------
+Enable life cycle management for automatically save 80% 
+Enable encyption at test and in transit for sensitive workloads
+Create backup plan for future protect your data
+Simplyfy EFS management with AWS system manager
+Monitor throughput utilization,bust credits 
+Use AWS budget for cost management
