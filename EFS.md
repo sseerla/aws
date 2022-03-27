@@ -98,9 +98,9 @@ DEV::Best Practices
 
 Admin:: Best Practices
 --------------------------
- Enable life cycle management for automatically save 80% 
- Enable encyption at test and in transit for sensitive workloads
- Create backup plan for future protect your data
- Simplyfy EFS management with AWS system manager
- Monitor throughput utilization,bust credits 
- Use AWS budget for cost management
+     Enable life cycle management for automatically save 80% 
+     Enable encyption at test and in transit for sensitive workloads
+     Create backup plan for future protect your data
+     Simplyfy EFS management with AWS system manager
+     Monitor throughput utilization,bust credits 
+     Use AWS budget for cost management
