@@ -4,8 +4,6 @@ Naviagte to AWS UI and dashboard
 Understanding AZs and Regions
 AWS Shared Responsibility Model
 
-
-
 #IAM 
 Understanding IAM users
 Activating MFA
@@ -38,6 +36,9 @@ Instance Families
 - Spot instances
 Key based authentication 
 Attaching Roles to EC2
+Understanding the user-data
+change the instnace types
+
 
 #AMI and Snapshots
 Create Image 
@@ -47,7 +48,10 @@ Creating snapshot
 
 #EBS volumes
 Types of EBS volumes
-Attaching EBS volumes to EC2
+Attaching and mounting EBS volumes to EC2
+Modifying the EBS volume size
+Different EBS volume states
+Multi-attach EBS volume
 
 #Load balancers
 ALB,ELB load balancers
