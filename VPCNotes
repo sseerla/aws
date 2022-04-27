@@ -36,14 +36,17 @@ subnets
 
 Route tables
 ------------
-For Each VPC a route table will be created. // Default route table.
-Two route table for public and other for private route table.
+A default/Main RT will be created when VPC is created 
 if there is no route table created All the subnets will be associated with default RT
 
-Subnet Association
-- Click on the RT, enable the association of subnets
+RT creation and association
+------------------------------
+- Click on the RT, create new RT name the RT and mention the subnets
+- click on the RT which got created and select subnet associations and select subnet you want group under RT which is created in step1
 
-One subnet can only have 1 RT, But I
+Note: - One subnet can only have one RT But one RT can associate mulitple subnets
+
+
 
 
 Internet Gateway
@@ -56,10 +59,14 @@ NAT gateway
 -------------
 Managed instance
 Launched in the public IP 
-NAT gateways helps all the internet bound traffic from pvt instances to internet and replies back.
-Example:- DB server which requires the patches.
+NAT gateways helps all the internet bound traffic from pvt instances to internet and replies back more like it acts like a proxy server
 
+Usecases::- DB server which requires the patches.
+
+Note:
 whenever you delete the NAT GW, before removing the route in PVT RT you will see something called backhole.
+
+
 
 
 Modify Auto assign the public IP address
