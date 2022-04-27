@@ -31,7 +31,7 @@ subnets
 10.0.1.3 :- for AWS Future purpose
 10.0.1.255 :- Boradcasting
 
-
+Note:- By default subnets can talk each other no rule is required in RT
 
 
 Route tables
