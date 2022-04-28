@@ -5,6 +5,7 @@ VPC
 #Create a RT and associate Subnets
 #Create a IGW
 #NAT gateway
+#NACL
 #VPC peering
 
 
@@ -82,6 +83,25 @@ Create a NAT gateway in the public subnet and associate a new public ot that.
 
 Now add a new route to private RT withe source as 0.0.0.0/0 to NAT gateway.
 
+
+
+
+NACL
+optional layer of security for the VPC that act as a firewall for controlling traffic in and out of one or more VPC
+A NACL will be created by default when a VPC is created.
+
+By default, NACL allow both inbound and outbound traffic
+
+How does the NACL work:
+-----------------------
+NACL works on based on the rule numbers lowest rule applies first
+
+Example:-
+
+RuleNo 10  port 80 allow HTTP traffic
+RuleNo 20  Port 80 deny  HTTP traffic 
+
+This will allow HTTP traffic  since we have lower rule number
 
 
 VPC peering.
