@@ -1,0 +1,35 @@
+What is AppRunner
+---------------------------
+- Fully Managed container  Deployment service 
+    In contrast, Fargate we need to mention the configration details needs to specify where as in AppRunner we dont
+ 
+- Autobuild,Deploy,LoadBalancing Autoscaling and Certificate setup.
+     It can give HTTPS endpoint setup
+     
+ - Log and Metric intergration with Cloudwatch
+ 
+ 
+ Intergrations and configration
+-------------------------------------------- 
+- ECR Image upload and Githun intergrations
+- Specify vCPUs(1-2) memory options 
+
+WorkFlow
+--------------
+Connect to your source(ECR or Git)
+COnfigure your service
+Launch and go
+
+
+Pricing 
+- Provisioned instance is 0.007$/hr
+- Active instance $0.064 + $.007/hr
+
+Automatic deployment is $1/month
+Build fess is .005/build
+cloudwatch is $.50/GB
+
+
+Notes:-
+VPC connectivty is not support
+Cant scale down to zero instances
