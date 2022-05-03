@@ -1,0 +1,8 @@
+Requirement
+- if any of the changes happens to code commit , it has to hit the SNS which will trigger the lambda
+
+CLoudwatch --> rules and select the "Create rules"
+In the rule select the "code commit" with all the events  in target select the SNS topic which is already integrated with lambda.
+
+Testing:-
+Edit a file the code commit reposiotry and commit , you should see a message in the channel.
