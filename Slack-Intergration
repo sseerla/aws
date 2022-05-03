@@ -1,0 +1,48 @@
+1. Create a SNS topic
+2. Create a lambda with version environment python 3.6
+>>>>>
+#!/usr/bin/python3.6
+import urllib3
+import json
+http = urllib3.PoolManager()
+def lambda_handler(event, context):
+    url = "https://hooks.slack.com/services/TXXXXXXXXXXXXXXX"
+    msg = {
+        "channel": "#CHANNEL_NAME",
+        "username": "WEBHOOK_USERNAME",
+        "text": event['Records'][0]['Sns']['Message'],
+        "icon_emoji": ""
+    }
+    
+    encoded_msg = json.dumps(msg).encode('utf-8')
+    resp = http.request('POST',url, body=encoded_msg)
+    print({
+        "message": event['Records'][0]['Sns']['Message'], 
+        "status_code": resp.status, 
+        "response": resp.data
+    })
+    
+  <<<<
+  
+Note:-
+
+Replace line 9 with Slack URL webhook
+
+Testing-1
+On the Functions page of the Lambda console, choose your function.
+At the top right, choose Select a test event. Then, choose Configure test events.
+In the Configure test event dialog box, choose Create new test event.
+For Event template, choose Amazon SNS Topic Notification.
+For Event name, enter a name for the test event.
+Choose Create.
+Choose Test.
+Review the Execution result.
+If the test invocation succeeds with a 200 status code, then the Amazon SNS notification message is accepted by your webhook, which delivers it to the corresponding channel. If the invocation fails with a 4xx status code, 
+then check the webhook URL and verify that the key-value pair is correct and accepted by your destination webhook.
+
+
+Testing-2 via SNS
+Add SNS as trigger to Lambda and select the apt SNS topic
+Go to SNS  select the SNS topic 
+select publish message , provide test message.
+you should be able verify test message in the channel
