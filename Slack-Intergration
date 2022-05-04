@@ -46,3 +46,6 @@ Add SNS as trigger to Lambda and select the apt SNS topic
 Go to SNS  select the SNS topic 
 select publish message , provide test message.
 you should be able verify test message in the channel
+
+
+https://hooks.slack.com/services/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
