@@ -1,14 +1,14 @@
 1. Create a SNS topic
 2. Create a lambda with version environment python 3.6
 >>>>>
-#!/usr/bin/python3.6
+r#!/usr/bin/python3.6
 import urllib3
 import json
 http = urllib3.PoolManager()
 def lambda_handler(event, context):
-    url = "https://hooks.slack.com/services/TXXXXXXXXXXXXXXX"
+    url = "https://hooks.slack.com/services/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"
     msg = {
-        "channel": "#CHANNEL_NAME",
+        "channel": "#codepipelines",
         "username": "WEBHOOK_USERNAME",
         "text": event['Records'][0]['Sns']['Message'],
         "icon_emoji": ""
@@ -21,7 +21,6 @@ def lambda_handler(event, context):
         "status_code": resp.status, 
         "response": resp.data
     })
-    
   <<<<
   
 Note:-
