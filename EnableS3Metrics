@@ -1,0 +1,8 @@
+Enable s3 Metrics for PUT request and Get request
+--------------
+
+select the s3 bucket  and select "Metric" on the top selection
+Select "View Additional charts" and click on the tab Request Metrics
+
+Create a Filter with select "All objects" inside the bucket.
+This will enable some graphs will take ~20-30 mins to update it
