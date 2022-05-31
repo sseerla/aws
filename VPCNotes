@@ -10,6 +10,16 @@ VPC
 
 
 
+what is VPC
+A VPC stands for Virtual Private Cloud, it's an isolated network within which all your resources are able to communicate between each other. 
+AWS default VPC with this CIDR block 172.31.0.0/16. This provides 65,536 private IPv4 addres
+
+
+A subnet is a section of the VPC allocated in an Avaibility Zone. AWS default subnet are size /20 block so 4094 private IPv4 (172.31.0.0/20, 172.31.16.0/20, 172.31.32.0/20) . A subnet can be public when it has an Internet Gateway attached otherwise the subnet is considered private. 
+It means resources in the private subnet won't have access to internet (no yum update allowed for example).
+
+
+
 ##How to calculate the IP address
 Formula to count the IP address available
 - 10.0.0.0/8  :- 2 ^ (32-8)   2^24 :- 16777216
@@ -118,6 +128,17 @@ why peering:- we connect 2 VPCS
 Without VPC peering they can talk to each other but they have to go via public subnets.
 
 whenever we create a vpc peering, owners of the VPC have to confirm the request, VPC can be same account or different account But conditions is they have to be in same region.
+
+
+Peering Notes
+--------------
+This pattern is simple because we add no components, it works cross region and is also cost effective because it's free. 
+This design is perfect if you have few VPC because the subnet CIDR block can't overlap.
+It's harder to manage in a Account Factory pattern (when you can create multiple accounts with the same process). 
+Peering works with VPCs in either same account or different accounts, within the same region or across regions. 
+So it can be useful when you want to peer your ec2, rds or lambdas.
+
+
 
 
 Conditions
