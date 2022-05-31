@@ -28,6 +28,9 @@ C. Create worker Nodes and connect to cluster.
 EKSctl
 
 # Install EKSctl
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+cp /tmp/eksctl /usr/bin
+
 # Verify  eksctl version
 # eksctl create cluster \
 --name test-cluster
