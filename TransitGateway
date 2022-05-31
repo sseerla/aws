@@ -1,0 +1,13 @@
+
+Why we do we need transit Gateway
+
+The VPC peering is a great solution but it becomes hard to manage when your network scale to hundreds or thousands VPCs. 
+Managing route tables and avoid IP overlaping isn't easy. Here is where AWS Transit Gateway comes in.
+
+We can see that Transit Gateway centralize the management of all VPC connections through this hub-and-spoke component. 
+It allows you also to connect your on-prem VPC. It's easy to understand how it simplified the management of hundreds of VPCs. 
+Some companies with large networks creates a dedicated AWS account for the network management. This is where the AWS Transit Gateway would lives in.
+So if Transit Gateway looks so perfect, should you forget about peering? Not at all. Transit Gateway has some drawbacks compared to peering. 
+One of them is that this structure is charged per VPC attachement. 730 hours * 0.05$ = 37$ per VPC attached without the traffic charge which can be expensive for medium companies. Transit Gateway will also add another hop in your communication so if you are looking for high performance it's a think about it. And finally, transit gateway comes with a 50Gbps bandwith limit.
+Because you can't have IP overlapping in your transit gateway you have to be very meticulous about how you allocate your CIDR block. 
+Usually you want to use a small range like /28
