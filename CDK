@@ -1,0 +1,39 @@
+CDK
+-----
+Cloud Devlopment Kit
+
+Main audiance are developers, who dont have to learn any IAAC like terraform,cloudformation for provisioing  of the resources 
+
+what CDK does:
+write code in any programming language using CDK framework which will conver into cloudformation template for deploying the resouces.
+
+Benefits of CDK
+less code for more resources creation 
+
+#Installation Steps
+npm install -g aws-cdk
+
+#checking CDK version
+cdk --version
+
+intialize
+#cdk init --language python
+
+Create a virtual environment 
+echo "aws-cdk.aws_ec2" >> requirement.txt
+
+pip install -r requirement.txt
+
+#This will create a programming structure 
+insert your code in CDK
+
+TO validate the code
+#cdk ls 
+
+To conver the code to CF
+#cdk synth : THis will generate the CF
+
+TO push the code to s3 bucket 
+#cdk bootstrap
+
+#To CDK deploy
