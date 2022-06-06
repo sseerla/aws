@@ -3,4 +3,5 @@
 
 
 What is AWS Account
-AWS accounts act like a boundary or container for a customer’s resources allowing them to segregate their workloads in the cloud and simplify billing
+AWS accounts act like a boundary or container for a customer’s resources allowing them to segregate their workloads in the cloud and simplify billing.
+By default, resources in an AWS account do not have access to resources outside the boundary creating a segregation which is not possible on-prem.
