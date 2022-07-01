@@ -1,0 +1,26 @@
+sagemaker
+
+Source make sources
+----------------------
+Sagemakers lets connect data from amazon s3, Redshift
+Feature engineering
+we transform the data
+
+#Data Wranger
+
+Models
+
+
+sagemaker Clarify
+-----------------
+to inspect the predictions, how each role 
+
+
+Sagemaker debugger
+------------------
+systematically check if any errors are there and removes the model.
+
+
+SagemakerPipelines
+---------------------
+cI/CD to automate continus automation deployment 
